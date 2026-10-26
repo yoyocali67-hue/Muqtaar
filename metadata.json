@@ -1,0 +1,6 @@
+{
+  "name": "SOM PLY eFootball 2026",
+  "description": "SOM PLY eFootball 2026 — Premier platform for eFootball 2026: Coins & Packs, DreamSquad AI, Player Training, and Exchange in Somali, English & Arabic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
