@@ -1,0 +1,71 @@
+{
+  "homepage": {
+    "hero": {
+      "badge": "SOM PLY",
+      "titlePrimary": "eFOOTBALL™",
+      "titleAccent": "2026",
+      "subtitle": "Play. Build. Win.",
+      "ctaTextSo": "Dalbo Hadda",
+      "ctaTextEn": "Order Now",
+      "ctaTextAr": "اشحن الآن",
+      "bannerImageUrl": "/assets/images/stars_banner.jpg",
+      "aspectRatio": "16:9"
+    },
+    "serviceCards": [
+      {
+        "id": "coins-packs",
+        "title": "Coins & Packs",
+        "descSo": "Dalbo, qiimee, oo eeg Packs-ka.",
+        "descEn": "Order, check prices, and view available packs.",
+        "descAr": "اطلب واطلع على أسعار وبكجات اللعبة.",
+        "image": "/assets/images/coins_card.jpg",
+        "badge": "Coins"
+      },
+      {
+        "id": "tournament",
+        "title": "Tournament",
+        "descSo": "Ku biir tartanka eFootball SOMPLAY.",
+        "descEn": "Join the SOMPLAY eFootball tournament.",
+        "descAr": "شارك في بطولة SOMPLAY eFootball.",
+        "image": "/assets/images/formation_market_card.jpg",
+        "badge": "Tournament"
+      },
+      {
+        "id": "chat",
+        "title": "Chat & Community",
+        "descSo": "Wada hadal, shaxda wadaag, oo la ciyaar asxaabta.",
+        "descEn": "Talk, share squads, and play together.",
+        "descAr": "تحدث، شارك التشكيلات، والعب مع الأصدقاء.",
+        "image": "/assets/images/ai_formation_card.jpg",
+        "badge": "Community"
+      },
+      {
+        "id": "player-training",
+        "title": "Player Training",
+        "descSo": "Hel qorshaha tababarka ciyaaryahan kasta.",
+        "descEn": "Get optimal training point guides for any card.",
+        "descAr": "احصل على أفضل خطط نقاط تدريب اللاعبين.",
+        "image": "/assets/images/player_training_card.jpg",
+        "badge": "Max OVR"
+      }
+    ]
+  },
+  "branding": {
+    "siteName": "SOM PLY eFootball 2026",
+    "siteTagline": "Somalia's Premier eFootball 2026 Hub",
+    "logoUrl": "",
+    "headerBannerUrl": ""
+  },
+  "tournament": {
+    "title": "SOMPLAY Champion Tournament 2026",
+    "subtitleSo": "Tartanka ugu weyn ee eFootball 2026 ee Soomaaliya.",
+    "subtitleEn": "Somalia's Premier eFootball 2026 Knockout Tournament.",
+    "bannerImageUrl": "/assets/images/formation_pitch_card_1792507175586.jpg"
+  },
+  "playerTraining": {
+    "catalogBannerUrl": "",
+    "gridColumns": 2,
+    "cardImageSize": "normal"
+  },
+  "updatedAt": "2026-10-28T21:19:00.000Z"
+}

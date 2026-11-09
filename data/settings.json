@@ -1,0 +1,15 @@
+{
+  "evcNumber": "61 789 2026",
+  "evcName": "SOM PLY SERVICES (Hormuud)",
+  "sahalNumber": "90 789 2026",
+  "sahalName": "SOM PLY SERVICES (Golis)",
+  "premierBankNumber": "010203040506",
+  "premierBankName": "SOM PLY eFootball Account",
+  "instructionsSo": "Fadlan lacagta toos ugu dir lambarka kor ku xusan. Markaad dirto kadib, soo qaado lambarka tixraaca (TRX ID ama Transaction Number) ama sawirka rasiidka oo ku soo lifaaq foomka hoose.",
+  "instructionsEn": "Please transfer the exact amount to the account numbers above. After sending, provide the transaction reference ID (TRX ID) and optional receipt screenshot.",
+  "evcUssdPrefix": "*712*",
+  "sahalUssdPrefix": "*90*",
+  "maintenanceMode": false,
+  "exchangeEnabled": false,
+  "updatedAt": "2026-10-29T03:34:34.217Z"
+}

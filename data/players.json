@@ -1,0 +1,582 @@
+[
+  {
+    "id": "player-del-piero",
+    "name": "Alessandro Del Piero",
+    "cardType": "Epic Booster 2026",
+    "clubOrNation": "Juventus / Italy",
+    "position": "SS",
+    "baseRating": 96,
+    "maxRating": 102,
+    "playstyle": "Creative Playmaker",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/del_piero.jpg",
+    "maxLevel": 36,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 10,
+      "passing": 8,
+      "dribbling": 11,
+      "dexterity": 9,
+      "lowerBody": 8,
+      "aerial": 4,
+      "defending": 1,
+      "gk1": 0,
+      "gk2": 0,
+      "gk3": 0
+    },
+    "recommendedBuild": {
+      "shooting": 10,
+      "passing": 8,
+      "dribbling": 11,
+      "dexterity": 9,
+      "lowerBody": 8,
+      "aerial": 4,
+      "defending": 1
+    },
+    "detailedStats": {
+      "offensiveAwareness": 93,
+      "ballControl": 97,
+      "dribbling": 96,
+      "tightPossession": 95,
+      "lowPass": 89,
+      "loftedPass": 86,
+      "finishing": 95,
+      "heading": 74,
+      "setPieceTaking": 97,
+      "curl": 98,
+      "speed": 88,
+      "acceleration": 93,
+      "kickingPower": 92,
+      "jumping": 78,
+      "physicalContact": 75,
+      "balance": 94,
+      "stamina": 85,
+      "defensiveAwareness": 48,
+      "tackling": 45,
+      "aggression": 62,
+      "defensiveEngagement": 52
+    },
+    "bio": {
+      "age": 27,
+      "height": "174 cm",
+      "weight": "73 kg",
+      "foot": "Right",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "Curl",
+        "value": 98
+      },
+      {
+        "name": "Set Piece Taking",
+        "value": 97
+      },
+      {
+        "name": "Ball Control",
+        "value": 97
+      },
+      {
+        "name": "Finishing",
+        "value": 95
+      },
+      {
+        "name": "Dribbling",
+        "value": 96
+      }
+    ],
+    "recommendedSkills": [
+      "Curler",
+      "Knuckle Shot",
+      "Sole Control",
+      "Double Touch",
+      "One-touch Pass"
+    ],
+    "tacticalAdviceSo": "Del Piero wuxuu leeyahay laadadka xorta ah iyo curl-ka ugu sarreeya eFootball (98 Curl). Waxaad ka ciyaarsiin kartaa SS ama AMF.",
+    "tacticalAdviceEn": "Master of curling shots and dead-ball situations with 98 curl and 97 set pieces. Ideal at Second Striker or central AMF."
+  },
+  {
+    "id": "player-laporte",
+    "name": "Aymeric Laporte",
+    "cardType": "Showtime Big Time 2026",
+    "clubOrNation": "Al Nassr / Spain",
+    "position": "CB",
+    "baseRating": 95,
+    "maxRating": 101,
+    "playstyle": "Build Up",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/laporte.jpg",
+    "maxLevel": 34,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 0,
+      "passing": 6,
+      "dribbling": 2,
+      "dexterity": 4,
+      "lowerBody": 6,
+      "aerial": 8,
+      "defending": 12,
+      "gk1": 0,
+      "gk2": 0,
+      "gk3": 0
+    },
+    "recommendedBuild": {
+      "shooting": 0,
+      "passing": 6,
+      "dribbling": 2,
+      "dexterity": 4,
+      "lowerBody": 6,
+      "aerial": 8,
+      "defending": 12
+    },
+    "detailedStats": {
+      "offensiveAwareness": 62,
+      "ballControl": 82,
+      "dribbling": 76,
+      "tightPossession": 78,
+      "lowPass": 88,
+      "loftedPass": 90,
+      "finishing": 58,
+      "heading": 92,
+      "setPieceTaking": 68,
+      "curl": 72,
+      "speed": 82,
+      "acceleration": 79,
+      "kickingPower": 88,
+      "jumping": 91,
+      "physicalContact": 94,
+      "balance": 74,
+      "stamina": 88,
+      "defensiveAwareness": 96,
+      "tackling": 96,
+      "aggression": 93,
+      "defensiveEngagement": 95
+    },
+    "bio": {
+      "age": 29,
+      "height": "191 cm",
+      "weight": "85 kg",
+      "foot": "Left",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "Defensive Awareness",
+        "value": 96
+      },
+      {
+        "name": "Tackling",
+        "value": 96
+      },
+      {
+        "name": "Physical Contact",
+        "value": 94
+      },
+      {
+        "name": "Lofted Pass",
+        "value": 90
+      },
+      {
+        "name": "Heading",
+        "value": 92
+      }
+    ],
+    "recommendedSkills": [
+      "Man Marking",
+      "Interception",
+      "Acrobatic Clearance",
+      "Aerial Superiority",
+      "Blocker"
+    ],
+    "tacticalAdviceSo": "Difaac casri ah oo bidix ku ciyaara (Left-footed CB). Kubada ka soo bilaabista dambe (Build-up) iyo baasaska dhaadheer ayuu ku fiican yahay.",
+    "tacticalAdviceEn": "Left-footed defensive powerhouse with 96 tackling and 90 lofted pass for pin-point long transition distributions."
+  },
+  {
+    "id": "player-casillas",
+    "name": "Iker Casillas",
+    "cardType": "Epic Booster 2026",
+    "clubOrNation": "FC Porto / Spain",
+    "position": "GK",
+    "baseRating": 96,
+    "maxRating": 102,
+    "playstyle": "Offensive Goalkeeper",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/casillas.jpg",
+    "maxLevel": 35,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 0,
+      "passing": 0,
+      "dribbling": 0,
+      "dexterity": 0,
+      "lowerBody": 0,
+      "aerial": 4,
+      "defending": 0,
+      "gk1": 10,
+      "gk2": 11,
+      "gk3": 11
+    },
+    "recommendedBuild": {
+      "shooting": 0,
+      "passing": 0,
+      "dribbling": 0,
+      "dexterity": 0,
+      "lowerBody": 0,
+      "aerial": 4,
+      "defending": 0
+    },
+    "detailedStats": {
+      "offensiveAwareness": 40,
+      "ballControl": 55,
+      "dribbling": 50,
+      "tightPossession": 52,
+      "lowPass": 72,
+      "loftedPass": 75,
+      "finishing": 40,
+      "heading": 65,
+      "setPieceTaking": 45,
+      "curl": 50,
+      "speed": 74,
+      "acceleration": 76,
+      "kickingPower": 84,
+      "jumping": 95,
+      "physicalContact": 80,
+      "balance": 82,
+      "stamina": 75,
+      "defensiveAwareness": 55,
+      "tackling": 50,
+      "aggression": 65,
+      "defensiveEngagement": 60,
+      "gkAwareness": 98,
+      "gkCatching": 94,
+      "gkParrying": 97,
+      "gkReflexes": 99,
+      "gkReach": 94
+    },
+    "bio": {
+      "age": 31,
+      "height": "185 cm",
+      "weight": "84 kg",
+      "foot": "Left",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "GK Reflexes",
+        "value": 99
+      },
+      {
+        "name": "GK Awareness",
+        "value": 98
+      },
+      {
+        "name": "GK Parrying",
+        "value": 97
+      },
+      {
+        "name": "Jumping",
+        "value": 95
+      },
+      {
+        "name": "GK Catching",
+        "value": 94
+      }
+    ],
+    "recommendedSkills": [
+      "GK High Punt",
+      "GK Low Punt",
+      "GK Penalty Saver",
+      "Fighting Spirit"
+    ],
+    "tacticalAdviceSo": "San Iker wuxuu leeyahay 99 GK Reflexes oo ah heerka ugu sarreeya. Wuxuu badbaadiyaa fursadaha 1v1 ee dhow.",
+    "tacticalAdviceEn": "99 Reflexes makes Casillas nearly unbeatable from close range 1v1 encounters. Outstanding shot-stopper."
+  },
+  {
+    "id": "player-gerrard",
+    "name": "Steven Gerrard",
+    "cardType": "Epic Booster 2026",
+    "clubOrNation": "Liverpool / England",
+    "position": "CMF",
+    "baseRating": 96,
+    "maxRating": 102,
+    "playstyle": "Box-to-Box",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/gerrard.jpg",
+    "maxLevel": 36,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 6,
+      "passing": 10,
+      "dribbling": 8,
+      "dexterity": 8,
+      "lowerBody": 9,
+      "aerial": 4,
+      "defending": 8,
+      "gk1": 0,
+      "gk2": 0,
+      "gk3": 0
+    },
+    "recommendedBuild": {
+      "shooting": 6,
+      "passing": 10,
+      "dribbling": 8,
+      "dexterity": 8,
+      "lowerBody": 9,
+      "aerial": 4,
+      "defending": 8
+    },
+    "detailedStats": {
+      "offensiveAwareness": 88,
+      "ballControl": 93,
+      "dribbling": 90,
+      "tightPossession": 91,
+      "lowPass": 95,
+      "loftedPass": 97,
+      "finishing": 90,
+      "heading": 82,
+      "setPieceTaking": 91,
+      "curl": 89,
+      "speed": 87,
+      "acceleration": 86,
+      "kickingPower": 99,
+      "jumping": 85,
+      "physicalContact": 91,
+      "balance": 86,
+      "stamina": 98,
+      "defensiveAwareness": 86,
+      "tackling": 87,
+      "aggression": 94,
+      "defensiveEngagement": 89
+    },
+    "bio": {
+      "age": 25,
+      "height": "183 cm",
+      "weight": "83 kg",
+      "foot": "Right",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "Kicking Power",
+        "value": 99
+      },
+      {
+        "name": "Stamina",
+        "value": 98
+      },
+      {
+        "name": "Lofted Pass",
+        "value": 97
+      },
+      {
+        "name": "Low Pass",
+        "value": 95
+      },
+      {
+        "name": "Finishing",
+        "value": 90
+      }
+    ],
+    "recommendedSkills": [
+      "Long Range Shooting",
+      "Rising Shot",
+      "Through Passing",
+      "Weighted Pass",
+      "Interception"
+    ],
+    "tacticalAdviceSo": "Awoodda laadka (99 Kicking Power) iyo baasaska dhaadheer (97 Lofted Pass). Gerrard wuxuu maamulaa dhexda garoonka oo dhan.",
+    "tacticalAdviceEn": "Unrivalled 99 Kicking Power rocket launcher with 98 stamina and 97 pin-point lofted delivery."
+  },
+  {
+    "id": "player-etoo",
+    "name": "Samuel Eto'o",
+    "cardType": "Epic Booster 2026",
+    "clubOrNation": "Inter",
+    "position": "CF",
+    "baseRating": 96,
+    "maxRating": 102,
+    "playstyle": "Goal Poacher",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/card_etoo_perfect.jpg",
+    "maxLevel": 38,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 9,
+      "passing": 8,
+      "dribbling": 9,
+      "dexterity": 9,
+      "lowerBody": 10,
+      "aerial": 9,
+      "defending": 8,
+      "gk1": 9,
+      "gk2": 8,
+      "gk3": 8
+    },
+    "recommendedBuild": {
+      "shooting": 9,
+      "passing": 8,
+      "dribbling": 9,
+      "dexterity": 9,
+      "lowerBody": 10,
+      "aerial": 9,
+      "defending": 8
+    },
+    "detailedStats": {
+      "offensiveAwareness": 95,
+      "ballControl": 90,
+      "dribbling": 92,
+      "tightPossession": 91,
+      "lowPass": 82,
+      "loftedPass": 76,
+      "finishing": 96,
+      "heading": 87,
+      "setPieceTaking": 80,
+      "curl": 84,
+      "speed": 98,
+      "acceleration": 97,
+      "kickingPower": 95,
+      "jumping": 90,
+      "physicalContact": 86,
+      "balance": 89,
+      "stamina": 92,
+      "defensiveAwareness": 58,
+      "tackling": 56,
+      "aggression": 72,
+      "defensiveEngagement": 64
+    },
+    "bio": {
+      "age": 28,
+      "height": "179 cm",
+      "weight": "75 kg",
+      "foot": "Right",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "Speed",
+        "value": 98
+      },
+      {
+        "name": "Acceleration",
+        "value": 97
+      },
+      {
+        "name": "Finishing",
+        "value": 96
+      },
+      {
+        "name": "Kicking Power",
+        "value": 95
+      },
+      {
+        "name": "Offensive Awareness",
+        "value": 95
+      }
+    ],
+    "recommendedSkills": [
+      "First-time Shot",
+      "Acrobatic Finishing",
+      "Double Touch",
+      "Speeding Bullet",
+      "Through Passing"
+    ],
+    "tacticalAdviceSo": "Samuel Eto'o waa weeraryahan degdeg ah oo goolasha dilaa ku ah. Dhis xawaaraha (Speed 98) iyo dhammaystirka (Finishing 96). Ku habboon Quick Counter ama Long Ball Counter.",
+    "tacticalAdviceEn": "Elite lethal speedster with 98 speed and 96 finishing. Lethal first-time finisher on high defensive lines."
+  },
+  {
+    "id": "player-bale",
+    "name": "Gareth Bale",
+    "cardType": "Epic Booster Speedster",
+    "clubOrNation": "Real Madrid / Wales",
+    "position": "RWF",
+    "baseRating": 97,
+    "maxRating": 103,
+    "playstyle": "Roaming Flank",
+    "colorAccent": "#0066ff",
+    "imageUrl": "/assets/players/bale.jpg",
+    "maxLevel": 37,
+    "availablePoints": 0,
+    "progressionPoints": {
+      "finishing": 9,
+      "passing": 4,
+      "dribbling": 9,
+      "dexterity": 10,
+      "lowerBody": 11,
+      "aerial": 6,
+      "defending": 0,
+      "gk1": 0,
+      "gk2": 0,
+      "gk3": 0
+    },
+    "recommendedBuild": {
+      "shooting": 9,
+      "passing": 4,
+      "dribbling": 9,
+      "dexterity": 10,
+      "lowerBody": 11,
+      "aerial": 6,
+      "defending": 0
+    },
+    "detailedStats": {
+      "offensiveAwareness": 94,
+      "ballControl": 93,
+      "dribbling": 94,
+      "tightPossession": 92,
+      "lowPass": 84,
+      "loftedPass": 86,
+      "finishing": 94,
+      "heading": 88,
+      "setPieceTaking": 89,
+      "curl": 88,
+      "speed": 99,
+      "acceleration": 98,
+      "kickingPower": 98,
+      "jumping": 92,
+      "physicalContact": 89,
+      "balance": 86,
+      "stamina": 91,
+      "defensiveAwareness": 52,
+      "tackling": 50,
+      "aggression": 70,
+      "defensiveEngagement": 60
+    },
+    "bio": {
+      "age": 26,
+      "height": "185 cm",
+      "weight": "82 kg",
+      "foot": "Left",
+      "form": "Unwavering"
+    },
+    "keyAttributes": [
+      {
+        "name": "Speed",
+        "value": 99
+      },
+      {
+        "name": "Acceleration",
+        "value": 98
+      },
+      {
+        "name": "Kicking Power",
+        "value": 98
+      },
+      {
+        "name": "Finishing",
+        "value": 94
+      },
+      {
+        "name": "Jumping",
+        "value": 92
+      }
+    ],
+    "recommendedSkills": [
+      "Knuckle Shot",
+      "Dipping Shot",
+      "Double Touch",
+      "Heading",
+      "Long Range Shooting"
+    ],
+    "tacticalAdviceSo": "Bale waa gantaal garabka midig ka soo galaya (Speed 99, Kicking Power 98). Goolal cajiib ah ayuu meel fog ka toogtaa lugtiisa bidix.",
+    "tacticalAdviceEn": "99 explosive speed and 98 kicking power. Cuts inside from the right wing to unleash venomous left-footed drives."
+  }
+]

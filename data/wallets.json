@@ -1,0 +1,101 @@
+{
+  "ply-1793054922155-881": {
+    "userId": "ply-1793054922155-881",
+    "userName": "Somali_Star10",
+    "babBalance": 250,
+    "pepBalance": 250,
+    "transactions": [
+      {
+        "id": "tx-101",
+        "type": "credit",
+        "amount": 100,
+        "description": "Welcome Bonus - eFootball 2026 Registration Grant",
+        "date": "2026-06-01T10:00:00Z"
+      },
+      {
+        "id": "tx-102",
+        "type": "debit",
+        "amount": 50,
+        "description": "SOMPLAY Tournament Entry Fee (Round of 32)",
+        "date": "2026-06-02T12:30:00Z"
+      },
+      {
+        "id": "tx-103",
+        "type": "credit",
+        "amount": 120,
+        "description": "Group Stage Top Qualifier Performance Reward",
+        "date": "2026-06-09T18:00:00Z"
+      },
+      {
+        "id": "tx-104",
+        "type": "credit",
+        "amount": 80,
+        "description": "Round of 32 Match Bounty",
+        "date": "2026-06-11T19:45:00Z"
+      }
+    ]
+  },
+  "p-1": {
+    "userId": "p-1",
+    "userName": "Ahmed_07",
+    "babBalance": 250,
+    "transactions": [
+      {
+        "id": "tx-201",
+        "type": "credit",
+        "amount": 100,
+        "description": "Welcome Registration Grant",
+        "date": "2026-06-01T10:00:00Z"
+      },
+      {
+        "id": "tx-202",
+        "type": "debit",
+        "amount": 50,
+        "description": "SOMPLAY 2026 Tournament Entry Fee",
+        "date": "2026-06-02T09:15:00Z"
+      },
+      {
+        "id": "tx-203",
+        "type": "credit",
+        "amount": 120,
+        "description": "Group A Top Qualifier Performance Reward",
+        "date": "2026-06-09T18:00:00Z"
+      },
+      {
+        "id": "tx-204",
+        "type": "credit",
+        "amount": 80,
+        "description": "Round of 32 Match Bounty vs Rashid_2",
+        "date": "2026-06-12T20:30:00Z"
+      }
+    ]
+  },
+  "p-3": {
+    "userId": "p-3",
+    "userName": "Ziad_9",
+    "babBalance": 180,
+    "transactions": [
+      {
+        "id": "tx-301",
+        "type": "credit",
+        "amount": 100,
+        "description": "Welcome Bonus",
+        "date": "2026-06-01T11:00:00Z"
+      },
+      {
+        "id": "tx-302",
+        "type": "debit",
+        "amount": 50,
+        "description": "Tournament Entry Fee",
+        "date": "2026-06-02T10:00:00Z"
+      },
+      {
+        "id": "tx-303",
+        "type": "credit",
+        "amount": 130,
+        "description": "Group B 1st Place Bonus",
+        "date": "2026-06-10T17:30:00Z"
+      }
+    ]
+  }
+}

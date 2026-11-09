@@ -10,6 +10,9 @@ import {
   Menu,
   X,
   Sparkles,
+  Trophy,
+  MessageSquare,
+  User,
 } from 'lucide-react';
 import { AppPage } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -51,10 +54,15 @@ export function Navbar({
       icon: <span className="text-amber-500 font-black text-sm">🪙</span>,
     },
     {
-      id: 'dreamsquad',
-      label: lang === 'so' ? 'Formation Market' : lang === 'ar' ? 'سوق التشكيلات' : 'Formation Market',
-      icon: <Brain className="w-4 h-4 text-purple-600" />,
-      badge: 'AI',
+      id: 'tournament',
+      label: lang === 'so' ? 'Tournament' : lang === 'ar' ? 'البطولة' : 'Tournament',
+      icon: <Trophy className="w-4 h-4 text-emerald-600" />,
+      badge: '$30',
+    },
+    {
+      id: 'chat',
+      label: lang === 'so' ? 'Chat' : lang === 'ar' ? 'المحادثة' : 'Chat',
+      icon: <MessageSquare className="w-4 h-4 text-blue-600" />,
     },
     {
       id: 'player-training',
@@ -66,6 +74,11 @@ export function Navbar({
       label: 'Exchange',
       icon: <Repeat className="w-4 h-4 text-blue-500" />,
       badge: exchangeEnabled ? undefined : (lang === 'ar' ? 'قريباً' : 'Soon'),
+    },
+    {
+      id: 'account',
+      label: lang === 'so' ? 'Akoonkeyga' : lang === 'ar' ? 'حسابي' : 'My Account',
+      icon: <User className="w-4 h-4 text-blue-600" />,
     },
   ];
 

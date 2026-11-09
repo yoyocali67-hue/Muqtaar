@@ -1,0 +1,790 @@
+{
+  "posts": [
+    {
+      "id": "post-1794065056154",
+      "authorId": "Somali_Star10",
+      "authorName": "Somali_Star10",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "verified": true,
+      "content": "Excited for the upcoming matches! My squad is ready.",
+      "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "reactions": 0,
+      "userReacted": false,
+      "views": 2,
+      "sharesCount": 0,
+      "commentsCount": 0,
+      "comments": [],
+      "createdAt": "2026-11-07T15:24:16.154Z"
+    },
+    {
+      "id": "post-somali-1",
+      "authorId": "Somali_Star10",
+      "authorName": "Somali_Star10",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "verified": true,
+      "content": "Road to Champion! 🚀",
+      "category": "eFootball",
+      "imageUrl": "/assets/images/formation_pitch_card_1792507175586.jpg",
+      "reactions": 86,
+      "commentsCount": 21,
+      "views": 1900,
+      "createdAt": "2026-10-28T10:00:00.000Z",
+      "comments": [
+        {
+          "id": "c-s1",
+          "authorId": "Zaki_Messi",
+          "authorName": "Zaki_Messi",
+          "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+          "text": "Great post bro! 💯",
+          "createdAt": "2026-10-28T10:15:00.000Z",
+          "reactions": 14
+        }
+      ]
+    },
+    {
+      "id": "post-somali-2",
+      "authorId": "Somali_Star10",
+      "authorName": "Somali_Star10",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "verified": true,
+      "content": "What a match! 🔥",
+      "category": "eFootball",
+      "imageUrl": "/assets/images/stars_banner.jpg",
+      "reactions": 124,
+      "commentsCount": 32,
+      "views": 2800,
+      "createdAt": "2026-10-28T09:30:00.000Z",
+      "comments": [
+        {
+          "id": "c-s2",
+          "authorId": "Abdirahman7",
+          "authorName": "Abdirahman7",
+          "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "text": "I agree with you! 👍",
+          "createdAt": "2026-10-28T09:40:00.000Z",
+          "reactions": 8
+        }
+      ]
+    },
+    {
+      "id": "post-somali-3",
+      "authorId": "Somali_Star10",
+      "authorName": "Somali_Star10",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "verified": true,
+      "content": "New formation is working well. 👏",
+      "category": "eFootball",
+      "imageUrl": "/assets/images/ai_formation_card.jpg",
+      "reactions": 86,
+      "commentsCount": 21,
+      "views": 1900,
+      "createdAt": "2026-10-27T12:00:00.000Z",
+      "comments": [
+        {
+          "id": "c-s3",
+          "authorId": "MohaPlay",
+          "authorName": "MohaPlay",
+          "authorAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+          "text": "Nice analysis! 🔥",
+          "createdAt": "2026-10-27T12:30:00.000Z",
+          "reactions": 6
+        }
+      ]
+    },
+    {
+      "id": "post-1",
+      "authorId": "Ahmed_07",
+      "authorName": "Ahmed_07",
+      "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "What's your best formation in eFootball 2026?",
+      "reactions": 44,
+      "commentsCount": 18,
+      "createdAt": "2026-06-12T14:30:00.000Z",
+      "comments": [
+        {
+          "id": "c-1",
+          "authorId": "Ziad_9",
+          "authorName": "Ziad_9",
+          "authorAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+          "text": "4-2-1-3 Quick Counter is definitely the meta this season!",
+          "createdAt": "2026-06-12T14:45:00.000Z",
+          "reactions": 12
+        },
+        {
+          "id": "c-2",
+          "authorId": "Khaled_10",
+          "authorName": "Khaled_10",
+          "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+          "text": "I prefer 4-3-3 with anchor man DMF to protect the counter attacks.",
+          "createdAt": "2026-06-12T15:10:00.000Z",
+          "reactions": 8
+        }
+      ],
+      "sharesCount": 1,
+      "views": 1
+    },
+    {
+      "id": "post-2",
+      "authorId": "Ziad_9",
+      "authorName": "Ziad_9",
+      "authorAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "I just won the tournament! 🔥",
+      "reactions": 76,
+      "commentsCount": 24,
+      "createdAt": "2026-06-12T13:30:00.000Z",
+      "comments": [
+        {
+          "id": "c-3",
+          "authorId": "Ahmed_07",
+          "authorName": "Ahmed_07",
+          "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "text": "Mabrouk bro! Deserved victory, that final match was insane.",
+          "createdAt": "2026-06-12T13:35:00.000Z",
+          "reactions": 15
+        }
+      ]
+    },
+    {
+      "id": "post-3",
+      "authorId": "Omar_4",
+      "authorName": "Omar_4",
+      "authorAvatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "Looking for a good striker. Any suggestions?",
+      "reactions": 31,
+      "commentsCount": 12,
+      "createdAt": "2026-06-12T12:30:00.000Z",
+      "comments": [
+        {
+          "id": "c-4",
+          "authorId": "Rami_6",
+          "authorName": "Rami_6",
+          "authorAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+          "text": "Epic Booster Shevchenko or Mbappe are lethal in the box.",
+          "createdAt": "2026-06-12T12:40:00.000Z",
+          "reactions": 9
+        }
+      ]
+    },
+    {
+      "id": "post-4",
+      "authorId": "Khaled_10",
+      "authorName": "Khaled_10",
+      "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "Who's ready for the next match? Let's play!",
+      "reactions": 58,
+      "commentsCount": 20,
+      "createdAt": "2026-06-12T11:30:00.000Z",
+      "comments": []
+    },
+    {
+      "id": "post-5",
+      "authorId": "Youssef_11",
+      "authorName": "Youssef_11",
+      "authorAvatar": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "Tips for defending in eFootball 2026?",
+      "reactions": 27,
+      "commentsCount": 9,
+      "createdAt": "2026-06-12T10:30:00.000Z",
+      "comments": [
+        {
+          "id": "c-5",
+          "authorId": "Ahmed_07",
+          "authorName": "Ahmed_07",
+          "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "text": "Don't press sprint constantly. Use Match-up button and anticipate passing lanes.",
+          "createdAt": "2026-06-12T10:45:00.000Z",
+          "reactions": 14
+        }
+      ]
+    },
+    {
+      "id": "post-6",
+      "authorId": "Rami_6",
+      "authorName": "Rami_6",
+      "authorAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "Rate my team 1-10?",
+      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+      "reactions": 28,
+      "commentsCount": 14,
+      "createdAt": "2026-06-12T09:30:00.000Z",
+      "comments": []
+    },
+    {
+      "id": "post-7",
+      "authorId": "Hassan_3",
+      "authorName": "Hassan_3",
+      "authorAvatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80",
+      "verified": true,
+      "content": "Can someone explain the new update?",
+      "reactions": 19,
+      "commentsCount": 7,
+      "createdAt": "2026-06-12T08:30:00.000Z",
+      "comments": []
+    }
+  ],
+  "conversations": [
+    {
+      "id": "conv-1794065024272",
+      "participantIds": [
+        "Somali_Star10",
+        "Abdi_10"
+      ],
+      "participants": [
+        {
+          "id": "Somali_Star10",
+          "name": "Somali_Star10",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Abdi_10",
+          "name": "Abdi_10",
+          "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "online": true,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Shared post by @Ahmed_07",
+      "lastMessageTime": "15:23",
+      "unreadCount": 0,
+      "updatedAt": "2026-11-07T15:23:44.272Z"
+    },
+    {
+      "id": "conv-ahmed",
+      "participantIds": [
+        "current-user",
+        "Ahmed_07"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Ahmed_07",
+          "name": "Ahmed_07",
+          "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "online": true,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Hey! Are you available for the match tonight?",
+      "lastMessageTime": "10:24",
+      "unreadCount": 2,
+      "updatedAt": "2026-06-12T10:28:00.000Z"
+    },
+    {
+      "id": "conv-ziad",
+      "participantIds": [
+        "current-user",
+        "Ziad_9"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Ziad_9",
+          "name": "Ziad_9",
+          "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+          "online": false,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Sure, let's play after 8 PM.",
+      "lastMessageTime": "09:50",
+      "unreadCount": 0,
+      "updatedAt": "2026-06-12T09:50:00.000Z"
+    },
+    {
+      "id": "conv-omar",
+      "participantIds": [
+        "current-user",
+        "Omar_4"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Omar_4",
+          "name": "Omar_4",
+          "avatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80",
+          "online": true,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Thanks bro!",
+      "lastMessageTime": "Yesterday",
+      "unreadCount": 1,
+      "updatedAt": "2026-06-11T18:20:00.000Z"
+    },
+    {
+      "id": "conv-khaled",
+      "participantIds": [
+        "current-user",
+        "Khaled_10"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Khaled_10",
+          "name": "Khaled_10",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+          "online": false,
+          "verified": true
+        }
+      ],
+      "lastMessage": "You can try this formation.",
+      "lastMessageTime": "Yesterday",
+      "unreadCount": 0,
+      "updatedAt": "2026-06-11T16:15:00.000Z"
+    },
+    {
+      "id": "conv-youssef",
+      "participantIds": [
+        "current-user",
+        "Youssef_11"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Youssef_11",
+          "name": "Youssef_11",
+          "avatar": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+          "online": true,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Good luck in the tournament!",
+      "lastMessageTime": "Jun 11",
+      "unreadCount": 0,
+      "updatedAt": "2026-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "conv-rami",
+      "participantIds": [
+        "current-user",
+        "Rami_6"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Rami_6",
+          "name": "Rami_6",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+          "online": false,
+          "verified": true
+        }
+      ],
+      "lastMessage": "See you later.",
+      "lastMessageTime": "Jun 10",
+      "unreadCount": 0,
+      "updatedAt": "2026-06-10T14:00:00.000Z"
+    },
+    {
+      "id": "conv-hassan",
+      "participantIds": [
+        "current-user",
+        "Hassan_3"
+      ],
+      "participants": [
+        {
+          "id": "current-user",
+          "name": "You",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+          "online": true
+        },
+        {
+          "id": "Hassan_3",
+          "name": "Hassan_3",
+          "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80",
+          "online": false,
+          "verified": true
+        }
+      ],
+      "lastMessage": "Alright 👍",
+      "lastMessageTime": "Jun 9",
+      "unreadCount": 0,
+      "updatedAt": "2026-06-09T18:00:00.000Z"
+    }
+  ],
+  "messages": {
+    "conv-ahmed": [
+      {
+        "id": "m-1",
+        "conversationId": "conv-ahmed",
+        "senderId": "Ahmed_07",
+        "senderName": "Ahmed_07",
+        "senderAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "text": "Hey! Are you available for the match tonight?",
+        "type": "text",
+        "createdAt": "2026-06-12T10:24:00.000Z",
+        "read": true
+      },
+      {
+        "id": "m-2",
+        "conversationId": "conv-ahmed",
+        "senderId": "current-user",
+        "senderName": "You",
+        "senderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+        "text": "Yes! I'm online now. Let's go!",
+        "type": "text",
+        "createdAt": "2026-06-12T10:25:00.000Z",
+        "read": true
+      },
+      {
+        "id": "m-3",
+        "conversationId": "conv-ahmed",
+        "senderId": "Ahmed_07",
+        "senderName": "Ahmed_07",
+        "senderAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "text": "Great! I'll send you the invite.",
+        "type": "text",
+        "createdAt": "2026-06-12T10:26:00.000Z",
+        "read": true
+      },
+      {
+        "id": "m-4",
+        "conversationId": "conv-ahmed",
+        "senderId": "Ahmed_07",
+        "senderName": "Ahmed_07",
+        "senderAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "text": "Match Invite",
+        "type": "match_invite",
+        "inviteData": {
+          "matchType": "eFootball 2026",
+          "scheduledTime": "Today • 9:00 PM",
+          "status": "pending"
+        },
+        "createdAt": "2026-06-12T10:27:00.000Z",
+        "read": true
+      },
+      {
+        "id": "m-5",
+        "conversationId": "conv-ahmed",
+        "senderId": "current-user",
+        "senderName": "You",
+        "senderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+        "text": "Perfect! See you there 👍",
+        "type": "text",
+        "createdAt": "2026-06-12T10:28:00.000Z",
+        "read": true
+      }
+    ],
+    "conv-1794065024272": [
+      {
+        "id": "msg-1794065024272",
+        "conversationId": "conv-1794065024272",
+        "senderId": "Somali_Star10",
+        "senderName": "Somali_Star10",
+        "senderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+        "text": "Wuxuu kula wadaagay boosto: \"What's your best formation in eFootball 2026?\"",
+        "type": "post_share",
+        "sharedPost": {
+          "id": "post-1",
+          "authorName": "Ahmed_07",
+          "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+          "content": "What's your best formation in eFootball 2026?"
+        },
+        "createdAt": "2026-11-07T15:23:44.272Z",
+        "read": true
+      }
+    ]
+  },
+  "profiles": {
+    "Ahmed_07": {
+      "id": "Ahmed_07",
+      "name": "Ahmed_07",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      "bio": "SOMPLAY Tournament Finalist • Group A Champion",
+      "verified": true,
+      "online": true,
+      "followersCount": 1420,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group A",
+      "joinedDate": "12 Jun 2026",
+      "stats": {
+        "matches": 8,
+        "wins": 6,
+        "losses": 2,
+        "goalsFor": 18,
+        "goalsAgainst": 7
+      },
+      "recentMatches": [
+        {
+          "opponent": "Ziad_9",
+          "opponentAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+          "score": "3 - 1",
+          "result": "Win",
+          "date": "Jun 12 • Group A",
+          "group": "Group A"
+        },
+        {
+          "opponent": "Omar_4",
+          "opponentAvatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80",
+          "score": "1 - 1",
+          "result": "Draw",
+          "date": "Jun 11 • Group A",
+          "group": "Group A"
+        },
+        {
+          "opponent": "Rami_6",
+          "opponentAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+          "score": "2 - 0",
+          "result": "Win",
+          "date": "Jun 9 • Group A",
+          "group": "Group A"
+        }
+      ]
+    },
+    "Ziad_9": {
+      "id": "Ziad_9",
+      "name": "Ziad_9",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+      "bio": "eFootball enthusiast | Quick Counter specialist",
+      "verified": true,
+      "online": false,
+      "followersCount": 980,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group B",
+      "joinedDate": "10 Jun 2026",
+      "stats": {
+        "matches": 7,
+        "wins": 5,
+        "losses": 2,
+        "goalsFor": 14,
+        "goalsAgainst": 6
+      },
+      "recentMatches": [
+        {
+          "opponent": "Yazen_7",
+          "opponentAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+          "score": "1 - 0",
+          "result": "Win",
+          "date": "Jun 12 • Group B",
+          "group": "Group B"
+        }
+      ]
+    },
+    "Omar_4": {
+      "id": "Omar_4",
+      "name": "Omar_4",
+      "avatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80",
+      "bio": "Possession Game master | SOMPLAY Community",
+      "verified": true,
+      "online": true,
+      "followersCount": 850,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group C",
+      "joinedDate": "11 Jun 2026",
+      "stats": {
+        "matches": 6,
+        "wins": 4,
+        "losses": 2,
+        "goalsFor": 12,
+        "goalsAgainst": 8
+      },
+      "recentMatches": [
+        {
+          "opponent": "Fahad_5",
+          "opponentAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+          "score": "3 - 2",
+          "result": "Win",
+          "date": "Jun 12 • Group C",
+          "group": "Group C"
+        }
+      ]
+    },
+    "Khaled_10": {
+      "id": "Khaled_10",
+      "name": "Khaled_10",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "bio": "Tournament finalist | Tactical analysis",
+      "verified": true,
+      "online": false,
+      "followersCount": 730,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group D",
+      "joinedDate": "09 Jun 2026",
+      "stats": {
+        "matches": 7,
+        "wins": 5,
+        "losses": 2,
+        "goalsFor": 15,
+        "goalsAgainst": 9
+      },
+      "recentMatches": []
+    },
+    "Youssef_11": {
+      "id": "Youssef_11",
+      "name": "Youssef_11",
+      "avatar": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+      "bio": "Defender and tactical coach",
+      "verified": true,
+      "online": true,
+      "followersCount": 610,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group E",
+      "joinedDate": "08 Jun 2026",
+      "stats": {
+        "matches": 5,
+        "wins": 3,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 6
+      },
+      "recentMatches": []
+    },
+    "Rami_6": {
+      "id": "Rami_6",
+      "name": "Rami_6",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "bio": "Squad builder | Epic card collector",
+      "verified": true,
+      "online": false,
+      "followersCount": 540,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group F",
+      "joinedDate": "07 Jun 2026",
+      "stats": {
+        "matches": 6,
+        "wins": 4,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 7
+      },
+      "recentMatches": []
+    },
+    "Hassan_3": {
+      "id": "Hassan_3",
+      "name": "Hassan_3",
+      "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80",
+      "bio": "eFootball 2026 player",
+      "verified": true,
+      "online": false,
+      "followersCount": 420,
+      "isFollowing": false,
+      "tournamentStatus": "Participating",
+      "tournamentGroup": "Group G",
+      "joinedDate": "06 Jun 2026",
+      "stats": {
+        "matches": 5,
+        "wins": 3,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 8
+      },
+      "recentMatches": []
+    },
+    "Somali_Star10": {
+      "id": "Somali_Star10",
+      "name": "Somali_Star10",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "bio": "eFootball is not just a game, it's a lifestyle.",
+      "location": "Somalia",
+      "verified": true,
+      "online": true,
+      "followersCount": 4,
+      "followingCount": 2,
+      "dmsCount": 12,
+      "tournamentStatus": "Active",
+      "tournamentGroup": "Group A",
+      "joinedDate": "12 Jun 2026",
+      "stats": {
+        "matches": 18,
+        "wins": 14,
+        "losses": 4,
+        "goalsFor": 36,
+        "goalsAgainst": 12
+      },
+      "rank": "1st",
+      "recentMatches": [
+        {
+          "opponent": "Rashid_2",
+          "opponentAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+          "score": "3 - 1",
+          "result": "Win",
+          "date": "12 Jun 2026 • Round of 32",
+          "group": "Group A"
+        }
+      ],
+      "friendsCount": 1
+    }
+  },
+  "userFollows": {
+    "Somali_Star10": [
+      "Abdirahman7",
+      "Ronaldo_7"
+    ],
+    "Abdi_10": [
+      "Somali_Star10"
+    ],
+    "Abdirahman7": [
+      "Somali_Star10"
+    ],
+    "Zaki_Messi": [
+      "Somali_Star10"
+    ],
+    "MohaPlay": [
+      "Somali_Star10"
+    ]
+  },
+  "userReactions": {
+    "current-user": [
+      "post-1"
+    ],
+    "Somali_Star10": [
+      "post-somali-1",
+      "post-somali-2",
+      "post-1"
+    ]
+  },
+  "userBookmarks": {
+    "Somali_Star10": [
+      "post-somali-2",
+      "post-1"
+    ]
+  },
+  "privacySettings": {
+    "Somali_Star10": {
+      "likedPostsPrivate": true,
+      "savedPostsPrivate": true
+    }
+  }
+}

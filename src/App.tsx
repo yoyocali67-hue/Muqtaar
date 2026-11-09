@@ -5,12 +5,19 @@ import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { CoinsPacksPage } from './pages/CoinsPacksPage';
 import { DreamSquadPage } from './pages/DreamSquadPage';
+import { TournamentPage } from './pages/TournamentPage';
+import { ChatCommunityPage } from './pages/ChatCommunityPage';
 import { PlayerTrainingPage } from './pages/PlayerTrainingPage';
+import { MyAccountPage } from './pages/MyAccountPage';
 import { ExchangePage } from './pages/ExchangePage';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { BottomNav } from './components/BottomNav';
 import { OrderTrackerModal } from './components/OrderTrackerModal';
 import { AdminLoginModal } from './components/AdminLoginModal';
 import { LanguageProvider } from './context/LanguageContext';
+import { AdminEditProvider } from './context/AdminEditContext';
+import { AdminFloatingBar } from './components/admin/AdminFloatingBar';
+import { InPlaceEditorModal } from './components/admin/InPlaceEditorModal';
 import { api } from './services/api';
 
 function AppContent() {
@@ -38,9 +45,18 @@ function AppContent() {
     loadSettings();
   }, [currentPage]);
 
+  // Always reset window/document scroll position to top when navigating between pages/sections
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [currentPage]);
+
   const handleNavigate = (page: AppPage) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   };
 
   const handleOpenOrderTracker = (id = '') => {
@@ -80,6 +96,13 @@ function AppContent() {
         isAdminLoggedIn={isAdminLoggedIn}
       />
 
+      {/* Admin Floating In-Place Action Bar */}
+      <AdminFloatingBar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onLogout={handleLogout}
+      />
+
       {/* Main Content Router */}
       <main className="flex-1 flex flex-col">
         {currentPage === 'home' && (
@@ -97,14 +120,26 @@ function AppContent() {
           />
         )}
 
-        {currentPage === 'dreamsquad' && (
-          <DreamSquadPage
+        {currentPage === 'tournament' && (
+          <TournamentPage
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {(currentPage === 'chat' || currentPage === 'dreamsquad') && (
+          <ChatCommunityPage
             onNavigate={handleNavigate}
           />
         )}
 
         {currentPage === 'player-training' && (
           <PlayerTrainingPage
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {currentPage === 'account' && (
+          <MyAccountPage
             onNavigate={handleNavigate}
           />
         )}
@@ -131,6 +166,12 @@ function AppContent() {
         onOpenOrderTracker={() => handleOpenOrderTracker('')}
       />
 
+      {/* Mobile Bottom Navigation (matching reference mockup) */}
+      <BottomNav
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+      />
+
       {/* Order Tracker Modal */}
       <OrderTrackerModal
         isOpen={orderTrackerOpen}
@@ -144,6 +185,9 @@ function AppContent() {
         onClose={() => setAdminLoginOpen(false)}
         onLoginSuccess={handleLoginSuccess}
       />
+
+      {/* Admin In-Place Content Editor Modal */}
+      <InPlaceEditorModal />
     </div>
   );
 }
@@ -151,7 +195,9 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <AdminEditProvider>
+        <AppContent />
+      </AdminEditProvider>
     </LanguageProvider>
   );
 }

@@ -59,10 +59,16 @@ export function Footer({ onNavigate, onOpenAdminLogin, onOpenOrderTracker }: Foo
             Coins & Packs
           </button>
           <button
-            onClick={() => onNavigate('dreamsquad')}
+            onClick={() => onNavigate('tournament')}
             className="hover:text-blue-600 transition-colors cursor-pointer"
           >
-            Formation Market
+            Tournament
+          </button>
+          <button
+            onClick={() => onNavigate('chat')}
+            className="hover:text-blue-600 transition-colors cursor-pointer"
+          >
+            {lang === 'so' ? 'Chat' : lang === 'ar' ? 'المحادثة' : 'Chat'}
           </button>
           <button
             onClick={() => onNavigate('player-training')}

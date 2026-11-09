@@ -101,15 +101,44 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
     return () => clearInterval(interval);
   }, [activeModal, codeTimer]);
 
-  // Polling order status while in 'verifying_payment' or 'processing'
+  // Polling order status while in 'verification', 'verifying_payment', or 'processing'
   useEffect(() => {
     if (!currentOrder) return;
-    if (activeModal !== 'verifying_payment' && activeModal !== 'processing') return;
+    if (activeModal !== 'verification' && activeModal !== 'verifying_payment' && activeModal !== 'processing') return;
 
     const pollInterval = setInterval(async () => {
       try {
         const updated = await api.getOrder(currentOrder.id);
         setCurrentOrder(updated);
+
+        // Real-time verification approval/rejection status check
+        if (activeModal === 'verification') {
+          if (updated.isEmailVerified && updated.verificationStatus === 'approved') {
+            // Admin approved the code: unlock payment modal immediately
+            setActiveModal('payment');
+            setShowPaidInputs(false);
+            setCodeError(null);
+          } else if (updated.verificationStatus === 'rejected') {
+            setCodeError(
+              updated.verificationRejectReason ||
+                (lang === 'so'
+                  ? `Koodhka waa la diiday (Isku dayga ${updated.verificationAttempts || 1}/5). Fadlan hubi email-kaaga oo geli koodhka saxda ah.`
+                  : `Verification code was rejected (Attempt ${updated.verificationAttempts || 1}/5). Please verify your email and retry.`)
+            );
+          } else if (updated.verificationStatus === 'locked') {
+            setCodeError(
+              lang === 'so'
+                ? '5 isku-day oo khaldan ka dib xaqiijinta waa la xiray. Fadlan taabo "Dib u bilow Xaqiijinta".'
+                : 'Verification blocked after 5 failed attempts. Please click "Restart Verification".'
+            );
+          } else if (updated.verificationStatus === 'expired') {
+            setCodeError(
+              lang === 'so'
+                ? 'Waqtigii koodhka wuu dhacay (10 daqiiqo). Fadlan taabo "Dib u bilow Xaqiijinta".'
+                : 'Verification code expired after 10 minutes. Please click "Restart Verification".'
+            );
+          }
+        }
 
         if (updated.status === 'Processing') {
           setActiveModal('processing');
@@ -121,10 +150,10 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
       } catch (err) {
         // silent retry
       }
-    }, 4000);
+    }, 2500);
 
     return () => clearInterval(pollInterval);
-  }, [currentOrder, activeModal]);
+  }, [currentOrder, activeModal, lang]);
 
   // Format countdown mm:ss
   const formatTime = (seconds: number) => {
@@ -148,7 +177,7 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 2. Customer submits details -> Creates ONE persistent order -> Opens compact Verification Modal (Screen 4)
+  // 2. Customer submits details -> Creates ONE persistent order immediately -> Opens compact Verification Modal (Screen 4)
   const handleContinueToVerification = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedPackage) return;
@@ -178,6 +207,12 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
       return;
     }
 
+    // Platform validation: Android is strictly required; iOS is coming soon
+    if (platform !== 'Android') {
+      setFormError('Only Android is currently available. iOS is coming soon.');
+      return;
+    }
+
     setIsStartingOrder(true);
     setFormError(null);
 
@@ -189,7 +224,7 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
         priceUsd: selectedPackage.priceUsd,
         customerEmail: cleanEmail,
         efootballId: cleanId,
-        platform,
+        platform: 'Android',
       });
 
       if (res.success && res.order) {
@@ -211,18 +246,18 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
     }
   };
 
-  // 3. Customer submits open verification code (6 to 8 characters: Arabic, English, numbers, symbols)
+  // 3. Customer submits open verification code (6 to 8 alphanumeric characters: letters, numbers, or both)
   const handleVerifyCode = async () => {
     if (!currentOrder) return;
     const cleanCode = verificationCodeInput.trim();
 
-    if (cleanCode.length < 6 || cleanCode.length > 8) {
+    if (!/^[a-zA-Z0-9]{6,8}$/.test(cleanCode)) {
       setCodeError(
         lang === 'so'
-          ? 'Fadlan geli koodh ka kooban 6 ilaa 8 xaraf ama lambar.'
+          ? 'Fadlan geli koodh ka kooban 6 ilaa 8 xaraf ama lambar (letters, numbers, or both).'
           : lang === 'ar'
           ? 'يجب أن يتكون رمز التحقق من 6 إلى 8 خانات (أحرف أو أرقام).'
-          : 'Please enter a code between 6 and 8 characters.'
+          : 'Please enter a code between 6 and 8 characters (letters, numbers, or both).'
       );
       return;
     }
@@ -234,9 +269,11 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
       const res = await api.verifyOrderCode(currentOrder.id, cleanCode);
       if (res.success && res.order) {
         setCurrentOrder(res.order);
-        // Move to manual payment modal (Sahal & EVC Plus)
-        setActiveModal('payment');
-        setShowPaidInputs(false);
+        if (res.order.isEmailVerified && res.order.verificationStatus === 'approved') {
+          // Unlocked! Move to manual payment modal (Sahal & EVC Plus)
+          setActiveModal('payment');
+          setShowPaidInputs(false);
+        }
       }
     } catch (err: any) {
       setCodeError(
@@ -252,11 +289,33 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
     }
   };
 
-  // Resend verification code
+  // Restart verification on the SAME order (handles 10m expiry or 5 failed attempts without creating duplicates)
+  const handleRestartVerification = async () => {
+    if (!currentOrder) return;
+    setIsVerifyingCode(true);
+    try {
+      const res = await api.restartVerification(currentOrder.id);
+      if (res.success && res.order) {
+        setCurrentOrder(res.order);
+        setVerificationCodeInput('');
+        setCodeTimer(600);
+        setCodeError(null);
+      }
+    } catch (err: any) {
+      setCodeError(err.message || 'Failed to restart verification');
+    } finally {
+      setIsVerifyingCode(false);
+    }
+  };
+
+  // Resend verification code (restarts timer on same order)
   const handleResendCode = async () => {
     if (!currentOrder) return;
     try {
-      await api.resendOrderCode(currentOrder.id);
+      const res = await api.resendOrderCode(currentOrder.id);
+      if (res.success && res.order) {
+        setCurrentOrder(res.order);
+      }
       setCodeTimer(600);
       setCodeError(null);
       setVerificationCodeInput('');
@@ -272,17 +331,19 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
     setTimeout(() => setCopiedNumber(false), 2000);
   };
 
-  // Trigger USSD / phone dialer
+  // Trigger USSD / phone dialer using exact configured package price (NO rounding e.g. $4.99 stays 4.99)
   const handlePayDirect = () => {
     if (!settings || !currentOrder) return;
     const isEvc = selectedMethod === 'EVC Plus';
     const rawNumber = (isEvc ? settings.evcNumber : settings.sahalNumber).replace(/\D/g, '');
-    const amount = Math.round(currentOrder.priceUsd);
+    const price = Number(currentOrder.priceUsd);
+    // Exact configured amount formatted cleanly without rounding: e.g. 4.99 -> "4.99", 5 -> "5"
+    const formattedAmount = Number.isInteger(price) ? price.toString() : price.toFixed(2);
 
     // Somali standard USSD: EVC *712*num*amount# , Sahal *789*num*amount#
     const ussd = isEvc
-      ? `tel:*712*${rawNumber}*${amount}%23`
-      : `tel:*789*${rawNumber}*${amount}%23`;
+      ? `tel:*712*${rawNumber}*${formattedAmount}%23`
+      : `tel:*789*${rawNumber}*${formattedAmount}%23`;
 
     window.location.href = ussd;
   };
@@ -410,7 +471,10 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@gmail.com"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                  enterKeyHint="next"
+                  autoComplete="email"
+                  inputMode="email"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   required
                 />
               </div>
@@ -430,41 +494,48 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
                   value={efootballId}
                   onChange={(e) => setEfootballId(e.target.value)}
                   placeholder="Enter your Player ID"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                  enterKeyHint="done"
+                  autoComplete="off"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   required
                 />
               </div>
             </div>
 
-            {/* Platform Selector (Strictly ONLY Android & Apple/iOS!) */}
+            {/* Platform Selector (Android is selectable, iOS is strictly marked Coming Soon, disabled and unselectable) */}
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                {lang === 'so' ? 'Platform' : lang === 'ar' ? 'نظام التشغيل' : 'Platform'}
-              </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-bold text-slate-700">
+                  {lang === 'so' ? 'Platform' : lang === 'ar' ? 'نظام التشغيل' : 'Platform'}
+                </label>
+                <span className="text-[10px] text-slate-400 font-semibold">
+                  {lang === 'so' ? 'Android kaliya ayaa diyaar ah' : 'Android available'}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2.5">
+                {/* Android - Available and Selectable */}
                 <button
                   type="button"
                   onClick={() => setPlatform('Android')}
-                  className={`py-2.5 px-3 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                    platform === 'Android'
-                      ? 'border-blue-600 bg-blue-50 text-blue-600 shadow-xs'
-                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                  }`}
+                  className="py-3 px-3.5 rounded-xl text-xs font-bold border-2 transition-all flex items-center justify-center gap-2 cursor-pointer border-blue-600 bg-blue-50/80 text-blue-700 shadow-xs"
                 >
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>Android</span>
+                  <Smartphone className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="font-extrabold">Android</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 ml-0.5" title="Available" />
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setPlatform('Apple / iOS')}
-                  className={`py-2.5 px-3 rounded-xl text-xs font-bold border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                    platform === 'Apple / iOS'
-                      ? 'border-blue-600 bg-blue-50 text-blue-600 shadow-xs'
-                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                  }`}
+
+                {/* iOS - Strictly Disabled and Visibly Marked 'Coming Soon' */}
+                <div
+                  aria-disabled="true"
+                  className="py-2.5 px-3 rounded-xl border-2 border-slate-200 bg-slate-100/90 text-slate-400 flex flex-col items-center justify-center gap-0.5 cursor-not-allowed select-none opacity-75"
                 >
-                  <span>🍎 Apple / iOS</span>
-                </button>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-bold text-xs text-slate-500">iOS</span>
+                  </div>
+                  <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-100/90 text-amber-800 border border-amber-300/80 tracking-wide">
+                    {lang === 'so' ? 'Dhawaan' : lang === 'ar' ? 'قريباً' : 'Coming Soon'}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -654,7 +725,7 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
               {currentOrder.customerEmail}
             </p>
 
-            {/* Flexible Open Code Input (6-8 chars: Arabic, English, Numbers, Symbols) */}
+            {/* Flexible Open Code Input (6-8 chars: letters, numbers, or both) */}
             <div className="my-5 space-y-2">
               <div className="relative">
                 <input
@@ -662,7 +733,7 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
                   maxLength={8}
                   value={verificationCodeInput}
                   onChange={(e) => {
-                    setVerificationCodeInput(e.target.value);
+                    setVerificationCodeInput(e.target.value.toUpperCase());
                     if (codeError) setCodeError(null);
                   }}
                   placeholder={
@@ -672,7 +743,12 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
                       ? 'أدخل رمز التحقق (أحرف/أرقام)'
                       : 'Enter code (6–8 chars/digits)'
                   }
-                  className="w-full text-center text-lg sm:text-xl font-bold tracking-wider text-slate-900 px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 bg-slate-50/60 transition-all placeholder:font-normal placeholder:text-xs placeholder:tracking-normal placeholder:text-slate-400"
+                  enterKeyHint="done"
+                  autoCapitalize="characters"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  disabled={codeTimer <= 0 || currentOrder.verificationStatus === 'locked' || currentOrder.verificationStatus === 'expired'}
+                  className="w-full text-center text-lg sm:text-xl font-bold tracking-wider text-slate-900 px-4 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 bg-slate-50/60 transition-all placeholder:font-normal placeholder:text-xs placeholder:tracking-normal placeholder:text-slate-400 disabled:opacity-50"
                   autoFocus
                 />
               </div>
@@ -681,10 +757,10 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
               <div className="flex items-center justify-between px-1 text-[11px] font-semibold text-slate-400">
                 <span>
                   {lang === 'so'
-                    ? 'Koodhku waa 6 ilaa 8 xaraf'
+                    ? 'Koodhku waa 6 ilaa 8 xaraf ama tiro'
                     : lang === 'ar'
                     ? 'الرمز يتكون من 6 إلى 8 خانات'
-                    : 'Code length: 6 to 8 characters'}
+                    : '6 to 8 alphanumeric chars'}
                 </span>
                 <span
                   className={`${
@@ -700,42 +776,71 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
               </div>
             </div>
 
+            {/* Awaiting Admin Approval Notice if code submitted */}
+            {currentOrder.verificationStatus === 'submitted' && (
+              <div className="p-3 rounded-2xl bg-blue-50 border border-blue-200 text-xs text-blue-700 font-medium flex items-center justify-center gap-2 mb-4 animate-pulse">
+                <RefreshCw className="w-3.5 h-3.5 animate-spin text-blue-600 shrink-0" />
+                <span>
+                  {lang === 'so'
+                    ? 'Koodhkaaga waa la qabtay. Fadlan daqiiqad sug maamulka oo hubinaya...'
+                    : 'Code recorded. Waiting for admin approval to unlock payment...'}
+                </span>
+              </div>
+            )}
+
             {/* Timer: Clock icon + Code expires in 10:00 */}
-            <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium mb-5">
+            <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium mb-4">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
               <span>
                 {lang === 'ar'
                   ? `صلاحية الرمز تنتهي خلال ${formatTime(codeTimer)}`
                   : `Code expires in ${formatTime(codeTimer)}`}
               </span>
+              {(currentOrder.verificationAttempts || 0) > 0 && (
+                <span className="text-[10px] text-amber-600 font-bold ml-2">
+                  (Attempt {currentOrder.verificationAttempts}/5)
+                </span>
+              )}
             </div>
 
             {codeError && (
-              <p className="text-xs text-red-600 font-medium mb-3">
+              <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium mb-4 text-center">
                 {codeError}
-              </p>
+              </div>
             )}
 
-            {/* Primary Blue Button */}
-            <button
-              onClick={handleVerifyCode}
-              disabled={
-                isVerifyingCode ||
-                verificationCodeInput.trim().length < 6 ||
-                verificationCodeInput.trim().length > 8
-              }
-              className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm shadow-sm transition-all cursor-pointer disabled:opacity-40"
-            >
-              {isVerifyingCode
-                ? lang === 'ar'
-                  ? 'يتم التحقق...'
-                  : 'Verifying...'
-                : lang === 'ar'
-                ? 'إرسال للتحقق'
-                : lang === 'so'
-                ? 'Xaqiiji Koodhka'
-                : 'Continue'}
-            </button>
+            {/* Check if expired or locked -> Show Restart Verification */}
+            {codeTimer <= 0 || currentOrder.verificationStatus === 'locked' || currentOrder.verificationStatus === 'expired' || (currentOrder.verificationAttempts || 0) >= 5 ? (
+              <button
+                onClick={handleRestartVerification}
+                disabled={isVerifyingCode}
+                className="w-full py-3.5 rounded-xl bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <RefreshCw className={`w-4 h-4 ${isVerifyingCode ? 'animate-spin' : ''}`} />
+                <span>{isVerifyingCode ? 'Dib u bilaabaya...' : 'Dib u bilow Xaqiijinta (Restart Verification)'}</span>
+              </button>
+            ) : (
+              /* Primary Blue Button */
+              <button
+                onClick={handleVerifyCode}
+                disabled={
+                  isVerifyingCode ||
+                  verificationCodeInput.trim().length < 6 ||
+                  verificationCodeInput.trim().length > 8
+                }
+                className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm shadow-sm transition-all cursor-pointer disabled:opacity-40"
+              >
+                {isVerifyingCode
+                  ? lang === 'ar'
+                    ? 'يتم التحقق...'
+                    : 'Verifying...'
+                  : lang === 'ar'
+                  ? 'إرسال للتحقق'
+                  : lang === 'so'
+                  ? 'Xaqiiji Koodhka'
+                  : 'Continue'}
+              </button>
+            )}
 
             {/* Resend Code Link */}
             <div className="mt-3.5">
@@ -869,7 +974,9 @@ export function CoinsPacksPage({ onNavigate, onOpenOrderTrackerWithId }: CoinsPa
                     value={transactionRef}
                     onChange={(e) => setTransactionRef(e.target.value)}
                     placeholder="tusaale: GW78291039 ama 482910"
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    enterKeyHint="done"
+                    autoComplete="off"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-base sm:text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                 </div>

@@ -3,6 +3,9 @@ import { ArrowRight } from 'lucide-react';
 import { AppPage } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
+import { useAdminEdit } from '../context/AdminEditContext';
+import { AdminEditButton } from '../components/admin/AdminEditButton';
+
 // Import distinct high-fidelity service card images
 import coinsCardImg from '../assets/images/coins_card.jpg';
 import formationMarketImg from '../assets/images/formation_market_card.jpg';
@@ -18,8 +21,21 @@ interface HomePageProps {
 
 export function HomePage({ onNavigate }: HomePageProps) {
   const { lang, t } = useLanguage();
+  const { siteContent } = useAdminEdit();
 
-  const serviceCards = [
+  const heroData = siteContent?.homepage?.hero || {
+    badge: 'SOM PLY',
+    titlePrimary: 'eFOOTBALL™',
+    titleAccent: '2026',
+    subtitle: 'Play. Build. Win.',
+    ctaTextSo: 'Dalbo Hadda',
+    ctaTextEn: 'Order Now',
+    ctaTextAr: 'اشحن الآن',
+    bannerImageUrl: starsBannerImg,
+    aspectRatio: '16:9',
+  };
+
+  const defaultServiceCards = [
     {
       id: 'coins-packs' as AppPage,
       title: 'Coins & Packs',
@@ -30,22 +46,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
       badge: 'Coins',
     },
     {
-      id: 'dreamsquad' as AppPage,
-      title: 'Formation Market',
-      descSo: 'Soo geli ama hel shaxaha dadka kale.',
-      descEn: 'Explore or share winning tactical formations.',
-      descAr: 'استكشف وشارك تشكيلات وخطط اللاعبين.',
+      id: 'tournament' as AppPage,
+      title: 'Tournament',
+      descSo: 'Ku biir tartanka eFootball SOMPLAY.',
+      descEn: 'Join the SOMPLAY eFootball tournament.',
+      descAr: 'شارك في بطولة SOMPLAY eFootball.',
       image: formationMarketImg,
-      badge: 'Market',
+      badge: 'Tournament',
     },
     {
-      id: 'dreamsquad' as AppPage,
-      title: 'AI Formation',
-      descSo: 'AI ha kuu habeeyo shaxda kooxdaada.',
-      descEn: 'Let AI build your optimal tactical setup.',
-      descAr: 'دع الذكاء الاصطناعي يبني تشكيلتك المثالية.',
+      id: 'chat' as AppPage,
+      title: 'Chat & Community',
+      descSo: 'Wada hadal, shaxda wadaag, oo la ciyaar asxaabta.',
+      descEn: 'Talk, share squads, and play together.',
+      descAr: 'تحدث، شارك التشكيلات، والعب مع الأصدقاء.',
       image: aiFormationImg,
-      badge: 'AI Coach',
+      badge: 'Community',
     },
     {
       id: 'player-training' as AppPage,
@@ -58,12 +74,39 @@ export function HomePage({ onNavigate }: HomePageProps) {
     },
   ];
 
+  // Merge with any custom siteContent if present
+  const serviceCards = defaultServiceCards.map((defaultCard) => {
+    const savedCard = siteContent?.homepage?.serviceCards?.find((c) => c.id === defaultCard.id);
+    if (!savedCard) return defaultCard;
+    return {
+      ...defaultCard,
+      title: savedCard.title || defaultCard.title,
+      descEn: savedCard.descEn || defaultCard.descEn,
+      descSo: savedCard.descSo || defaultCard.descSo,
+      image: savedCard.image || defaultCard.image,
+    };
+  });
+
   return (
     <div className="w-full max-w-xl mx-auto px-4 py-4 sm:py-6 flex flex-col gap-4 sm:gap-5">
       
       {/* 1. Hero Section (Screen 1 Target) */}
       <div className="relative w-full rounded-3xl overflow-hidden bg-gradient-to-r from-[#003299] via-[#024bc0] to-[#012b77] text-white shadow-lg shadow-blue-900/10 min-h-[175px] sm:min-h-[200px] flex items-center justify-between p-5 sm:p-7">
         
+        {/* In-Place Admin Edit Trigger */}
+        <div className="absolute top-3 right-3 z-30">
+          <AdminEditButton
+            target={{
+              type: 'homepage-hero',
+              title: `${heroData.titlePrimary} ${heroData.titleAccent}`,
+              subtitle: heroData.subtitle,
+              imageUrl: heroData.bannerImageUrl,
+              aspectRatio: heroData.aspectRatio,
+            }}
+            label="Edit Hero"
+          />
+        </div>
+
         {/* Left Content */}
         <div className="relative z-10 max-w-[58%] flex flex-col justify-center">
           {/* Official eFootball Spiral Mark */}
@@ -77,23 +120,30 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </svg>
             </div>
             <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-blue-200">
-              SOM PLY
+              {heroData.badge || 'SOM PLY'}
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl font-black tracking-tight uppercase leading-tight font-sans">
-            eFOOTBALL™ <span className="text-amber-400">2026</span>
+            {heroData.titlePrimary}{' '}
+            <span className="text-amber-400">{heroData.titleAccent}</span>
           </h1>
 
           <p className="text-xs sm:text-sm text-blue-100 font-medium mt-1">
-            Play. Build. Win.
+            {heroData.subtitle}
           </p>
 
           <button
             onClick={() => onNavigate('coins-packs')}
             className="mt-3.5 inline-flex items-center gap-1.5 w-fit px-3.5 py-1.5 rounded-full bg-white text-blue-700 font-bold text-xs shadow-sm hover:bg-blue-50 transition-all cursor-pointer active:scale-95"
           >
-            <span>{lang === 'so' ? 'Dalbo Hadda' : lang === 'ar' ? 'اشحن الآن' : 'Order Now'}</span>
+            <span>
+              {lang === 'so'
+                ? heroData.ctaTextSo || 'Dalbo Hadda'
+                : lang === 'ar'
+                ? heroData.ctaTextAr || 'اشحن الآن'
+                : heroData.ctaTextEn || 'Order Now'}
+            </span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -102,7 +152,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="absolute right-0 top-0 bottom-0 w-[48%] pointer-events-none overflow-hidden">
           <div className="relative w-full h-full">
             <img
-              src={starsBannerImg}
+              src={heroData.bannerImageUrl || starsBannerImg}
               alt="eFootball 2026 Stars"
               className="w-full h-full object-cover object-center scale-110 mask-radial"
             />
@@ -124,6 +174,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
               onClick={() => onNavigate(card.id)}
               className="group relative bg-white border border-slate-100/90 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 shadow-xs hover:shadow-md hover:border-blue-200 transition-all duration-200 cursor-pointer flex flex-col justify-between"
             >
+              {/* In-Place Admin Edit Trigger */}
+              <div className="absolute top-2 right-2 z-20">
+                <AdminEditButton
+                  target={{
+                    type: 'service-card',
+                    id: card.id,
+                    title: card.title,
+                    subtitle: description,
+                    imageUrl: card.image,
+                  }}
+                />
+              </div>
+
               <div>
                 {/* 3D App-style Card Artwork Container */}
                 <div className="w-full aspect-square max-h-[130px] sm:max-h-[145px] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-50 flex items-center justify-center mb-3 group-hover:scale-[1.02] transition-transform">

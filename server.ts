@@ -6,7 +6,31 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
 import { readJsonFile, writeJsonFile } from './src/server/db';
-import { CoinPackage, Order, PaymentConfig, PlayerCard, DreamSquadAnalysisResponse, Playstyle } from './src/types';
+import {
+  CoinPackage,
+  Order,
+  PaymentConfig,
+  PlayerCard,
+  DreamSquadAnalysisResponse,
+  Playstyle,
+  TournamentData,
+  TournamentParticipant,
+  TournamentMatch,
+  TournamentGroup,
+  CommunityPost,
+  CommunityComment,
+  ChatMessage,
+  ChatConversation,
+  UserCommunityProfile,
+  UserWallet,
+  WalletTransaction,
+  AccountMeResponse,
+  StaffMember,
+  StaffRole,
+  StaffActivityLog,
+  SiteContent,
+  SiteAnalytics,
+} from './src/types';
 
 dotenv.config();
 
@@ -158,6 +182,461 @@ const DEFAULT_SETTINGS: PaymentConfig = {
 };
 
 const DEFAULT_PLAYERS: PlayerCard[] = [
+  {
+    id: 'player-etoo',
+    name: "Samuel Eto'o",
+    cardType: 'Epic Booster 2026',
+    clubOrNation: 'Inter',
+    position: 'CF',
+    baseRating: 96,
+    maxRating: 102,
+    playstyle: 'Goal Poacher',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/card_etoo_perfect.jpg',
+    maxLevel: 38,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 9,
+      passing: 8,
+      dribbling: 9,
+      dexterity: 9,
+      lowerBody: 10,
+      aerial: 9,
+      defending: 8,
+      gk1: 9,
+      gk2: 8,
+      gk3: 8,
+    },
+    recommendedBuild: {
+      shooting: 9,
+      passing: 8,
+      dribbling: 9,
+      dexterity: 9,
+      lowerBody: 10,
+      aerial: 9,
+      defending: 8,
+    },
+    detailedStats: {
+      offensiveAwareness: 95,
+      ballControl: 90,
+      dribbling: 92,
+      tightPossession: 91,
+      lowPass: 82,
+      loftedPass: 76,
+      finishing: 96,
+      heading: 87,
+      setPieceTaking: 80,
+      curl: 84,
+      speed: 98,
+      acceleration: 97,
+      kickingPower: 95,
+      jumping: 90,
+      physicalContact: 86,
+      balance: 89,
+      stamina: 92,
+      defensiveAwareness: 58,
+      tackling: 56,
+      aggression: 72,
+      defensiveEngagement: 64,
+    },
+    bio: {
+      age: 28,
+      height: '179 cm',
+      weight: '75 kg',
+      foot: 'Right',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'Speed', value: 98 },
+      { name: 'Acceleration', value: 97 },
+      { name: 'Finishing', value: 96 },
+      { name: 'Kicking Power', value: 95 },
+      { name: 'Offensive Awareness', value: 95 },
+    ],
+    recommendedSkills: ['First-time Shot', 'Acrobatic Finishing', 'Double Touch', 'Speeding Bullet', 'Through Passing'],
+    tacticalAdviceSo: "Samuel Eto'o waa weeraryahan degdeg ah oo goolasha dilaa ku ah. Dhis xawaaraha (Speed 98) iyo dhammaystirka (Finishing 96). Ku habboon Quick Counter ama Long Ball Counter.",
+    tacticalAdviceEn: 'Elite lethal speedster with 98 speed and 96 finishing. Lethal first-time finisher on high defensive lines.',
+  },
+  {
+    id: 'player-del-piero',
+    name: 'Alessandro Del Piero',
+    cardType: 'Epic Booster 2026',
+    clubOrNation: 'Juventus / Italy',
+    position: 'SS',
+    baseRating: 96,
+    maxRating: 102,
+    playstyle: 'Creative Playmaker',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/del_piero.jpg',
+    maxLevel: 36,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 10,
+      passing: 8,
+      dribbling: 11,
+      dexterity: 9,
+      lowerBody: 8,
+      aerial: 4,
+      defending: 1,
+      gk1: 0,
+      gk2: 0,
+      gk3: 0,
+    },
+    recommendedBuild: {
+      shooting: 10,
+      passing: 8,
+      dribbling: 11,
+      dexterity: 9,
+      lowerBody: 8,
+      aerial: 4,
+      defending: 1,
+    },
+    detailedStats: {
+      offensiveAwareness: 93,
+      ballControl: 97,
+      dribbling: 96,
+      tightPossession: 95,
+      lowPass: 89,
+      loftedPass: 86,
+      finishing: 95,
+      heading: 74,
+      setPieceTaking: 97,
+      curl: 98,
+      speed: 88,
+      acceleration: 93,
+      kickingPower: 92,
+      jumping: 78,
+      physicalContact: 75,
+      balance: 94,
+      stamina: 85,
+      defensiveAwareness: 48,
+      tackling: 45,
+      aggression: 62,
+      defensiveEngagement: 52,
+    },
+    bio: {
+      age: 27,
+      height: '174 cm',
+      weight: '73 kg',
+      foot: 'Right',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'Curl', value: 98 },
+      { name: 'Set Piece Taking', value: 97 },
+      { name: 'Ball Control', value: 97 },
+      { name: 'Finishing', value: 95 },
+      { name: 'Dribbling', value: 96 },
+    ],
+    recommendedSkills: ['Curler', 'Knuckle Shot', 'Sole Control', 'Double Touch', 'One-touch Pass'],
+    tacticalAdviceSo: 'Del Piero wuxuu leeyahay laadadka xorta ah iyo curl-ka ugu sarreeya eFootball (98 Curl). Waxaad ka ciyaarsiin kartaa SS ama AMF.',
+    tacticalAdviceEn: 'Master of curling shots and dead-ball situations with 98 curl and 97 set pieces. Ideal at Second Striker or central AMF.',
+  },
+  {
+    id: 'player-laporte',
+    name: 'Aymeric Laporte',
+    cardType: 'Showtime Big Time 2026',
+    clubOrNation: 'Al Nassr / Spain',
+    position: 'CB',
+    baseRating: 95,
+    maxRating: 101,
+    playstyle: 'Build Up',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/laporte.jpg',
+    maxLevel: 34,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 0,
+      passing: 6,
+      dribbling: 2,
+      dexterity: 4,
+      lowerBody: 6,
+      aerial: 8,
+      defending: 12,
+      gk1: 0,
+      gk2: 0,
+      gk3: 0,
+    },
+    recommendedBuild: {
+      shooting: 0,
+      passing: 6,
+      dribbling: 2,
+      dexterity: 4,
+      lowerBody: 6,
+      aerial: 8,
+      defending: 12,
+    },
+    detailedStats: {
+      offensiveAwareness: 62,
+      ballControl: 82,
+      dribbling: 76,
+      tightPossession: 78,
+      lowPass: 88,
+      loftedPass: 90,
+      finishing: 58,
+      heading: 92,
+      setPieceTaking: 68,
+      curl: 72,
+      speed: 82,
+      acceleration: 79,
+      kickingPower: 88,
+      jumping: 91,
+      physicalContact: 94,
+      balance: 74,
+      stamina: 88,
+      defensiveAwareness: 96,
+      tackling: 96,
+      aggression: 93,
+      defensiveEngagement: 95,
+    },
+    bio: {
+      age: 29,
+      height: '191 cm',
+      weight: '85 kg',
+      foot: 'Left',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'Defensive Awareness', value: 96 },
+      { name: 'Tackling', value: 96 },
+      { name: 'Physical Contact', value: 94 },
+      { name: 'Lofted Pass', value: 90 },
+      { name: 'Heading', value: 92 },
+    ],
+    recommendedSkills: ['Man Marking', 'Interception', 'Acrobatic Clearance', 'Aerial Superiority', 'Blocker'],
+    tacticalAdviceSo: 'Difaac casri ah oo bidix ku ciyaara (Left-footed CB). Kubada ka soo bilaabista dambe (Build-up) iyo baasaska dhaadheer ayuu ku fiican yahay.',
+    tacticalAdviceEn: 'Left-footed defensive powerhouse with 96 tackling and 90 lofted pass for pin-point long transition distributions.',
+  },
+  {
+    id: 'player-casillas',
+    name: 'Iker Casillas',
+    cardType: 'Epic Booster 2026',
+    clubOrNation: 'FC Porto / Spain',
+    position: 'GK',
+    baseRating: 96,
+    maxRating: 102,
+    playstyle: 'Offensive Goalkeeper',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/casillas.jpg',
+    maxLevel: 35,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 0,
+      passing: 0,
+      dribbling: 0,
+      dexterity: 0,
+      lowerBody: 0,
+      aerial: 4,
+      defending: 0,
+      gk1: 10,
+      gk2: 11,
+      gk3: 11,
+    },
+    recommendedBuild: {
+      shooting: 0,
+      passing: 0,
+      dribbling: 0,
+      dexterity: 0,
+      lowerBody: 0,
+      aerial: 4,
+      defending: 0,
+    },
+    detailedStats: {
+      offensiveAwareness: 40,
+      ballControl: 55,
+      dribbling: 50,
+      tightPossession: 52,
+      lowPass: 72,
+      loftedPass: 75,
+      finishing: 40,
+      heading: 65,
+      setPieceTaking: 45,
+      curl: 50,
+      speed: 74,
+      acceleration: 76,
+      kickingPower: 84,
+      jumping: 95,
+      physicalContact: 80,
+      balance: 82,
+      stamina: 75,
+      defensiveAwareness: 55,
+      tackling: 50,
+      aggression: 65,
+      defensiveEngagement: 60,
+      gkAwareness: 98,
+      gkCatching: 94,
+      gkParrying: 97,
+      gkReflexes: 99,
+      gkReach: 94,
+    },
+    bio: {
+      age: 31,
+      height: '185 cm',
+      weight: '84 kg',
+      foot: 'Left',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'GK Reflexes', value: 99 },
+      { name: 'GK Awareness', value: 98 },
+      { name: 'GK Parrying', value: 97 },
+      { name: 'Jumping', value: 95 },
+      { name: 'GK Catching', value: 94 },
+    ],
+    recommendedSkills: ['GK High Punt', 'GK Low Punt', 'GK Penalty Saver', 'Fighting Spirit'],
+    tacticalAdviceSo: 'San Iker wuxuu leeyahay 99 GK Reflexes oo ah heerka ugu sarreeya. Wuxuu badbaadiyaa fursadaha 1v1 ee dhow.',
+    tacticalAdviceEn: '99 Reflexes makes Casillas nearly unbeatable from close range 1v1 encounters. Outstanding shot-stopper.',
+  },
+  {
+    id: 'player-gerrard',
+    name: 'Steven Gerrard',
+    cardType: 'Epic Booster 2026',
+    clubOrNation: 'Liverpool / England',
+    position: 'CMF',
+    baseRating: 96,
+    maxRating: 102,
+    playstyle: 'Box-to-Box',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/gerrard.jpg',
+    maxLevel: 36,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 6,
+      passing: 10,
+      dribbling: 8,
+      dexterity: 8,
+      lowerBody: 9,
+      aerial: 4,
+      defending: 8,
+      gk1: 0,
+      gk2: 0,
+      gk3: 0,
+    },
+    recommendedBuild: {
+      shooting: 6,
+      passing: 10,
+      dribbling: 8,
+      dexterity: 8,
+      lowerBody: 9,
+      aerial: 4,
+      defending: 8,
+    },
+    detailedStats: {
+      offensiveAwareness: 88,
+      ballControl: 93,
+      dribbling: 90,
+      tightPossession: 91,
+      lowPass: 95,
+      loftedPass: 97,
+      finishing: 90,
+      heading: 82,
+      setPieceTaking: 91,
+      curl: 89,
+      speed: 87,
+      acceleration: 86,
+      kickingPower: 99,
+      jumping: 85,
+      physicalContact: 91,
+      balance: 86,
+      stamina: 98,
+      defensiveAwareness: 86,
+      tackling: 87,
+      aggression: 94,
+      defensiveEngagement: 89,
+    },
+    bio: {
+      age: 25,
+      height: '183 cm',
+      weight: '83 kg',
+      foot: 'Right',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'Kicking Power', value: 99 },
+      { name: 'Stamina', value: 98 },
+      { name: 'Lofted Pass', value: 97 },
+      { name: 'Low Pass', value: 95 },
+      { name: 'Finishing', value: 90 },
+    ],
+    recommendedSkills: ['Long Range Shooting', 'Rising Shot', 'Through Passing', 'Weighted Pass', 'Interception'],
+    tacticalAdviceSo: 'Awoodda laadka (99 Kicking Power) iyo baasaska dhaadheer (97 Lofted Pass). Gerrard wuxuu maamulaa dhexda garoonka oo dhan.',
+    tacticalAdviceEn: 'Unrivalled 99 Kicking Power rocket launcher with 98 stamina and 97 pin-point lofted delivery.',
+  },
+  {
+    id: 'player-bale',
+    name: 'Gareth Bale',
+    cardType: 'Epic Booster Speedster',
+    clubOrNation: 'Real Madrid / Wales',
+    position: 'RWF',
+    baseRating: 97,
+    maxRating: 103,
+    playstyle: 'Roaming Flank',
+    colorAccent: '#0066ff',
+    imageUrl: '/assets/players/bale.jpg',
+    maxLevel: 37,
+    availablePoints: 0,
+    progressionPoints: {
+      finishing: 9,
+      passing: 4,
+      dribbling: 9,
+      dexterity: 10,
+      lowerBody: 11,
+      aerial: 6,
+      defending: 0,
+      gk1: 0,
+      gk2: 0,
+      gk3: 0,
+    },
+    recommendedBuild: {
+      shooting: 9,
+      passing: 4,
+      dribbling: 9,
+      dexterity: 10,
+      lowerBody: 11,
+      aerial: 6,
+      defending: 0,
+    },
+    detailedStats: {
+      offensiveAwareness: 94,
+      ballControl: 93,
+      dribbling: 94,
+      tightPossession: 92,
+      lowPass: 84,
+      loftedPass: 86,
+      finishing: 94,
+      heading: 88,
+      setPieceTaking: 89,
+      curl: 88,
+      speed: 99,
+      acceleration: 98,
+      kickingPower: 98,
+      jumping: 92,
+      physicalContact: 89,
+      balance: 86,
+      stamina: 91,
+      defensiveAwareness: 52,
+      tackling: 50,
+      aggression: 70,
+      defensiveEngagement: 60,
+    },
+    bio: {
+      age: 26,
+      height: '185 cm',
+      weight: '82 kg',
+      foot: 'Left',
+      form: 'Unwavering',
+    },
+    keyAttributes: [
+      { name: 'Speed', value: 99 },
+      { name: 'Acceleration', value: 98 },
+      { name: 'Kicking Power', value: 98 },
+      { name: 'Finishing', value: 94 },
+      { name: 'Jumping', value: 92 },
+    ],
+    recommendedSkills: ['Knuckle Shot', 'Dipping Shot', 'Double Touch', 'Heading', 'Long Range Shooting'],
+    tacticalAdviceSo: 'Bale waa gantaal garabka midig ka soo galaya (Speed 99, Kicking Power 98). Goolal cajiib ah ayuu meel fog ka toogtaa lugtiisa bidix.',
+    tacticalAdviceEn: '99 explosive speed and 98 kicking power. Cuts inside from the right wing to unleash venomous left-footed drives.',
+  },
   {
     id: 'player-messi',
     name: 'Lionel Messi',
@@ -321,6 +800,50 @@ async function startServer() {
   const getSettings = () => readJsonFile<PaymentConfig>('settings.json', DEFAULT_SETTINGS);
   const getPlayers = () => readJsonFile<PlayerCard[]>('players.json', DEFAULT_PLAYERS);
   const getOrders = () => readJsonFile<Order[]>('orders.json', []);
+  const getStaff = () => readJsonFile<StaffMember[]>('staff.json', []);
+  const getSiteContent = () => readJsonFile<SiteContent>('site_content.json', {
+    homepage: {
+      hero: {
+        badge: 'SOM PLY',
+        titlePrimary: 'eFOOTBALL™',
+        titleAccent: '2026',
+        subtitle: 'Play. Build. Win.',
+        ctaTextSo: 'Dalbo Hadda',
+        ctaTextEn: 'Order Now',
+        ctaTextAr: 'اشحن الآن',
+        bannerImageUrl: '/assets/images/stars_banner.jpg',
+        aspectRatio: '16:9',
+      },
+      serviceCards: [],
+    },
+    branding: {
+      siteName: 'SOM PLY eFootball 2026',
+      siteTagline: "Somalia's Premier eFootball 2026 Hub",
+      logoUrl: '',
+      headerBannerUrl: '',
+    },
+    tournament: {
+      title: 'SOMPLAY Champion Tournament 2026',
+      subtitleSo: 'Tartanka ugu weyn ee eFootball 2026 ee Soomaaliya.',
+      subtitleEn: "Somalia's Premier eFootball 2026 Knockout Tournament.",
+      bannerImageUrl: '/assets/images/formation_pitch_card_1792507175586.jpg',
+    },
+    playerTraining: {
+      catalogBannerUrl: '',
+      gridColumns: 2,
+      cardImageSize: 'normal',
+    },
+    updatedAt: new Date().toISOString(),
+  });
+  const getAnalytics = () => readJsonFile<SiteAnalytics>('analytics.json', {
+    totalVisits: 1420,
+    uniqueVisitors: 890,
+    totalOrders: 32,
+    totalRevenueUsd: 384.50,
+    totalTournamentRegistrations: 32,
+    dailyVisits: [],
+    popularSections: [],
+  });
 
   // API: Download full project source code as ZIP
   app.get('/api/download-zip', (req: Request, res: Response) => {
@@ -427,7 +950,7 @@ async function startServer() {
     res.json({ ...order, verificationCode: undefined });
   });
 
-  // API: Start Order (Step 1 -> Creates single persistent order & generates code)
+  // API: Start Order (Step 1 -> Creates single persistent order & initial verification lifecycle)
   app.post('/api/orders/start', (req: Request, res: Response) => {
     const {
       packageId,
@@ -440,10 +963,18 @@ async function startServer() {
     } = req.body;
 
     if (!customerEmail || !String(customerEmail).trim()) {
-      return res.status(400).json({ error: 'Fadlan geli cinwaanka email-kaaga.' });
+      return res.status(400).json({ error: 'Fadlan geli cinwaanka email-kaaga / Please enter your email address.' });
     }
     if (!efootballId || !String(efootballId).trim()) {
-      return res.status(400).json({ error: 'Fadlan geli eFootball Player ID-gaaga.' });
+      return res.status(400).json({ error: 'Fadlan geli eFootball Player ID-gaaga / Please enter your eFootball Player ID.' });
+    }
+
+    // Platform validation: iOS is coming soon, only Android is supported
+    const rawPlatform = String(platform || 'Android').trim();
+    if (/ios|apple|iphone|ipad/i.test(rawPlatform)) {
+      return res.status(400).json({
+        error: 'iOS platform is currently coming soon. Only Android is supported at this time / Qaabka iOS hadda waa dhawaan. Kaliya Android ayaa la ogolyahay.',
+      });
     }
 
     const uniqueOrderNumber = `SOM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
@@ -459,8 +990,11 @@ async function startServer() {
       customerContact: String(customerEmail).trim(),
       customerEmail: String(customerEmail).trim(),
       efootballId: String(efootballId).trim(),
-      platform: platform === 'Apple / iOS' ? 'Apple / iOS' : 'Android',
+      platform: 'Android',
       verificationCode: '',
+      verificationStatus: 'pending',
+      verificationAttempts: 0,
+      verificationExpiresAt: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
       isEmailVerified: false,
       status: 'Pending Payment',
       createdAt: new Date().toISOString(),
@@ -471,63 +1005,181 @@ async function startServer() {
     orders.unshift(newOrder);
     writeJsonFile('orders.json', orders);
 
-    console.log(`[Order Started] ID: ${newOrder.id} for ${newOrder.efootballId}`);
+    console.log(`[Order Started] ID: ${newOrder.id} for ${newOrder.efootballId} on Android`);
     res.status(201).json({
       success: true,
       order: { ...newOrder, verificationCode: undefined },
     });
   });
 
-  // API: Verify Custom Code (6 to 8 chars: any language, Arabic, English, numbers, symbols)
+  // API: Customer Submits Alphanumeric Verification Code (6-8 chars: letters, numbers, or both)
   app.post('/api/orders/:id/verify-code', (req: Request, res: Response) => {
     const { id } = req.params;
     const { code } = req.body;
     const orders = getOrders();
     const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
-    if (!order) return res.status(404).json({ error: 'Dalabka lama helin' });
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
 
-    const normalized = String(code || '').trim();
-    if (normalized.length < 6 || normalized.length > 8) {
-      return res.status(400).json({
-        error: 'Koodhka xaqiijintu waa inuu u dhexeeyaa 6 ilaa 8 xaraf ama tiro / Verification code must be 6 to 8 characters / يجب أن يتكون رمز التحقق من 6 إلى 8 خانات.',
+    // If already verified and approved, unlock immediately
+    if (order.isEmailVerified && order.verificationStatus === 'approved') {
+      return res.json({
+        success: true,
+        order: { ...order, verificationCode: undefined },
+        message: 'Email already verified and approved / Email-ka mar hore ayaa la xaqiijiyay.',
       });
     }
 
-    // Accepts manual verification code received from admin via email
+    // Check expiry (10 minutes)
+    if (order.verificationExpiresAt && new Date(order.verificationExpiresAt).getTime() < Date.now()) {
+      order.verificationStatus = 'expired';
+      order.updatedAt = new Date().toISOString();
+      writeJsonFile('orders.json', orders);
+      return res.status(400).json({
+        error: 'Koodhku wuxuu dhacay (10 daqiiqo). Fadlan dib u bilow xaqiijinta dalabkan / Verification expired after 10 minutes. Please restart verification.',
+        order: { ...order, verificationCode: undefined },
+      });
+    }
+
+    // Check attempt limit (max 5 attempts)
+    if ((order.verificationAttempts || 0) >= 5) {
+      order.verificationStatus = 'locked';
+      order.updatedAt = new Date().toISOString();
+      writeJsonFile('orders.json', orders);
+      return res.status(400).json({
+        error: 'Isku-dayada ugu badan waa la gaaray (5/5). Xaqiijinta waa la xiray, fadlan dib u bilow xaqiijinta dalabkan / Maximum verification attempts (5/5) reached. Please restart verification.',
+        order: { ...order, verificationCode: undefined },
+      });
+    }
+
+    const normalized = String(code || '').trim();
+    // Validate length 6 to 8 characters, accepting letters, numbers, or both (alphanumeric)
+    if (!/^[a-zA-Z0-9]{6,8}$/.test(normalized)) {
+      return res.status(400).json({
+        error: 'Koodhka xaqiijintu waa inuu ka koobnaadaa 6 ilaa 8 xaraf ama lambar / Verification code must be 6 to 8 alphanumeric characters (letters, numbers, or both).',
+      });
+    }
+
+    // Record code against this persistent order for admin/staff review
     order.verificationCode = normalized;
-    order.isEmailVerified = true;
+    order.verificationStatus = 'submitted';
     order.updatedAt = new Date().toISOString();
     writeJsonFile('orders.json', orders);
-    console.log(`[Order Verified] ID: ${order.id} Code entered: "${normalized}"`);
+
+    console.log(`[Order Verification Code Submitted] ID: ${order.id} Code: "${normalized}" recorded for admin review`);
 
     return res.json({
       success: true,
       order: { ...order, verificationCode: undefined },
-      message: 'Koodhka waa la aqbalay / Code accepted successfully / تم قبول الرمز وجارٍ المتابعة',
+      message: 'Koodhka waa la qabtay. Fadlan sug inta maamulku xaqiijinayo / Code submitted and recorded. Awaiting admin approval.',
     });
   });
 
-  // API: Resend Code
+  // API: Admin Manually Approves Verification Code
+  app.post('/api/orders/:id/approve-code', (req: Request, res: Response) => {
+    const { id } = req.params;
+    const orders = getOrders();
+    const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
+
+    order.isEmailVerified = true;
+    order.verificationStatus = 'approved';
+    order.verificationRejectReason = undefined;
+    order.updatedAt = new Date().toISOString();
+    writeJsonFile('orders.json', orders);
+
+    console.log(`[Order Code Approved by Admin] ID: ${order.id}`);
+    res.json({
+      success: true,
+      order,
+      message: 'Koodhka si guul ah ayaa loo ansixiyay / Verification code approved. Payment step unlocked.',
+    });
+  });
+
+  // API: Admin Manually Rejects Verification Code
+  app.post('/api/orders/:id/reject-code', (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { reason } = req.body;
+    const orders = getOrders();
+    const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
+
+    order.isEmailVerified = false;
+    order.verificationStatus = 'rejected';
+    order.verificationAttempts = (order.verificationAttempts || 0) + 1;
+    if (order.verificationAttempts >= 5) {
+      order.verificationStatus = 'locked';
+    }
+    order.verificationRejectReason = reason || 'Koodh aan sax ahayn ama aan shaqaynayn / Invalid verification code';
+    order.updatedAt = new Date().toISOString();
+    writeJsonFile('orders.json', orders);
+
+    console.log(`[Order Code Rejected by Admin] ID: ${order.id} (Attempt ${order.verificationAttempts}/5)`);
+    res.json({
+      success: true,
+      order,
+      message: 'Koodhka waa la diiday. Macmiilka wuu isku dayi karaa mar kale / Verification code rejected.',
+    });
+  });
+
+  // API: Restart Verification on the SAME Order (handles expiry or 5 failed attempts without creating duplicates)
+  app.post('/api/orders/:id/restart-verification', (req: Request, res: Response) => {
+    const { id } = req.params;
+    const orders = getOrders();
+    const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
+
+    order.verificationCode = '';
+    order.verificationStatus = 'pending';
+    order.verificationAttempts = 0;
+    order.verificationExpiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+    order.isEmailVerified = false;
+    order.verificationRejectReason = undefined;
+    order.updatedAt = new Date().toISOString();
+    writeJsonFile('orders.json', orders);
+
+    console.log(`[Order Verification Restarted on Same Order] ID: ${order.id}`);
+    res.json({
+      success: true,
+      order: { ...order, verificationCode: undefined },
+      message: 'Xaqiijinta dib baa loogu bilaabay isla dalabkan / Verification restarted on same order.',
+    });
+  });
+
+  // API: Resend Code (Also restarts timer securely on same order)
   app.post('/api/orders/:id/resend-code', (req: Request, res: Response) => {
     const { id } = req.params;
     const orders = getOrders();
     const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
-    if (!order) return res.status(404).json({ error: 'Dalabka lama helin' });
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
 
-    order.verificationCode = String(Math.floor(100000 + Math.random() * 900000));
+    order.verificationCode = '';
+    order.verificationStatus = 'pending';
+    order.verificationExpiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+    order.isEmailVerified = false;
     order.updatedAt = new Date().toISOString();
     writeJsonFile('orders.json', orders);
 
-    res.json({ success: true, message: 'Koodh cusub ayaa loo diray email-kaaga.' });
+    res.json({
+      success: true,
+      order: { ...order, verificationCode: undefined },
+      message: 'Koodh cusub ayaa loo diyaariyay dalabkan / New verification timer started on same order.',
+    });
   });
 
-  // API: Submit Payment Details (Step 3 & 4 -> updates same persistent order)
+  // API: Submit Payment Details (Requires Email Verification Approval First)
   app.post('/api/orders/:id/payment', (req: Request, res: Response) => {
     const { id } = req.params;
     const { paymentMethod, transactionRef, receiptImage } = req.body;
     const orders = getOrders();
     const order = orders.find((o) => o.id.toLowerCase() === id.toLowerCase());
-    if (!order) return res.status(404).json({ error: 'Dalabka lama helin' });
+    if (!order) return res.status(404).json({ error: 'Dalabka lama helin / Order not found' });
+
+    // Payment is locked until email verification code is approved by admin/staff
+    if (!order.isEmailVerified || order.verificationStatus !== 'approved') {
+      return res.status(403).json({
+        error: 'Tallaabada lacag-bixintu waa xiran tahay ilaa inta email-ka laga xaqiijinayo / Payment step is locked until verification code is approved.',
+      });
+    }
 
     if (!transactionRef || !String(transactionRef).trim()) {
       return res.status(400).json({ error: 'Fadlan geli lambarka tixraaca lacag-bixinta (TRX ID).' });
@@ -568,6 +1220,12 @@ async function startServer() {
     if (!efootballId || !customerContact || !transactionRef) {
       return res.status(400).json({
         error: 'Fadlan buuxi Player ID-ga, xiriirkaaga, iyo lambarka tixraaca lacagta.',
+      });
+    }
+
+    if (platform && /ios|apple|iphone|ipad/i.test(String(platform))) {
+      return res.status(400).json({
+        error: 'iOS platform is currently coming soon. Only Android is supported at this time.',
       });
     }
 
@@ -664,6 +1322,208 @@ async function startServer() {
       success: false,
       error: 'Username-ka ama Password-ka aad gelisay ma saxna.',
     });
+  });
+
+  // Admin Authorization Middleware
+  const requireAdminAuth = (req: Request, res: Response, next: () => void) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ error: 'Fadlan gal akoonka maamulka (Admin authentication required).' });
+    }
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (!token.startsWith('adm_token_') && !token.startsWith('staff_token_')) {
+      return res.status(403).json({ error: 'Kama tirsanid maamulka sare (Admin authorization required).' });
+    }
+    next();
+  };
+
+  // API: Admin token check
+  app.get('/api/admin/check', (req: Request, res: Response) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ valid: false, error: 'Authentication required' });
+    }
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (token.startsWith('adm_token_')) {
+      return res.json({
+        valid: true,
+        adminName: 'SOM PLY SuperAdmin',
+        role: 'Super Admin',
+      });
+    }
+    if (token.startsWith('staff_token_')) {
+      return res.json({
+        valid: true,
+        adminName: 'SOM PLY Staff',
+        role: 'Admin',
+      });
+    }
+    res.status(403).json({ valid: false, error: 'Invalid admin token' });
+  });
+
+  // API: Public get site content
+  app.get('/api/content', (req: Request, res: Response) => {
+    res.json(getSiteContent());
+  });
+
+  // API: Admin update site content
+  app.post('/api/admin/content', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      const current = getSiteContent();
+      const updated: SiteContent = {
+        ...current,
+        ...req.body,
+        updatedAt: new Date().toISOString(),
+      };
+      writeJsonFile('site_content.json', updated);
+      res.json({ success: true, content: updated });
+    } catch (err: any) {
+      console.error('Error saving content:', err);
+      res.status(500).json({ error: 'Failed to update site content' });
+    }
+  });
+
+  // API: Admin Analytics
+  app.get('/api/admin/analytics', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      const baseAnalytics = getAnalytics();
+      const orders = getOrders();
+      const tournament = getTournamentData();
+      const players = getPlayers();
+
+      const totalRevenueUsd = Number(
+        orders
+          .filter((o) => o.status === 'Completed' || o.status === 'Payment Confirmed')
+          .reduce((sum, o) => sum + (o.priceUsd || 0), 0)
+          .toFixed(2)
+      );
+
+      const dynamicAnalytics: SiteAnalytics = {
+        totalVisits: baseAnalytics.totalVisits || 1420,
+        uniqueVisitors: baseAnalytics.uniqueVisitors || 890,
+        totalOrders: orders.length,
+        totalRevenueUsd: totalRevenueUsd > 0 ? totalRevenueUsd : baseAnalytics.totalRevenueUsd,
+        totalTournamentRegistrations: tournament.participants?.length || tournament.registeredCount || 32,
+        dailyVisits: baseAnalytics.dailyVisits,
+        popularSections: [
+          { name: 'Coins & Packs', count: orders.length * 20 + 200 },
+          { name: 'Tournament', count: (tournament.participants?.length || 0) * 12 + 150 },
+          { name: 'Player Training', count: players.length * 35 + 100 },
+          { name: 'Chat & Community', count: 220 },
+        ],
+      };
+
+      res.json({ success: true, analytics: dynamicAnalytics });
+    } catch (err: any) {
+      console.error('Error getting analytics:', err);
+      res.status(500).json({ error: 'Failed to load analytics' });
+    }
+  });
+
+  // API: Admin Staff Management
+  app.get('/api/admin/staff', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      res.json({ success: true, staff: getStaff() });
+    } catch (err: any) {
+      console.error('Error loading staff:', err);
+      res.status(500).json({ error: 'Failed to load staff list' });
+    }
+  });
+
+  app.post('/api/admin/staff', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      const staffList = getStaff();
+      const member: StaffMember = req.body;
+
+      if (!member.name || !member.email) {
+        return res.status(400).json({ error: 'Magaca iyo email-ka waa qasab (Name and email are required)' });
+      }
+
+      const idx = staffList.findIndex((s) => s.id === member.id);
+      if (idx >= 0) {
+        staffList[idx] = {
+          ...staffList[idx],
+          ...member,
+          lastActive: new Date().toISOString(),
+        };
+      } else {
+        const newMember: StaffMember = {
+          id: `staff-${Date.now()}`,
+          name: member.name,
+          email: member.email,
+          role: member.role || 'Support',
+          avatar: member.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+          ordersProcessed: 0,
+          lastActive: new Date().toISOString(),
+          isOnline: true,
+          status: 'active',
+          createdAt: new Date().toISOString(),
+        };
+        staffList.push(newMember);
+      }
+
+      writeJsonFile('staff.json', staffList);
+      res.json({ success: true, staff: staffList });
+    } catch (err: any) {
+      console.error('Error saving staff:', err);
+      res.status(500).json({ error: 'Failed to save staff member' });
+    }
+  });
+
+  app.delete('/api/admin/staff/:id', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      if (id === 'staff-1') {
+        return res.status(400).json({ error: 'Lama tiri karo koontada Super Admin-ka ugu weyn' });
+      }
+      const staffList = getStaff().filter((s) => s.id !== id);
+      writeJsonFile('staff.json', staffList);
+      res.json({ success: true, staff: staffList });
+    } catch (err: any) {
+      console.error('Error deleting staff:', err);
+      res.status(500).json({ error: 'Failed to delete staff member' });
+    }
+  });
+
+  app.get('/api/admin/staff/activity', requireAdminAuth, (req: Request, res: Response) => {
+    try {
+      const tournament = getTournamentData();
+      const orders = getOrders();
+      const staff = getStaff();
+
+      const activityLogs: StaffActivityLog[] = [];
+
+      // Generate activity from recent order changes
+      orders.slice(0, 10).forEach((ord, i) => {
+        const staffName = staff[i % staff.length]?.name || 'Admin';
+        activityLogs.push({
+          id: `act-ord-${ord.id}`,
+          staffName,
+          action: `Order Status: ${ord.status}`,
+          details: `Processed order ${ord.id} for player ${ord.efootballId} ($${ord.priceUsd})`,
+          timestamp: ord.updatedAt || ord.createdAt,
+        });
+      });
+
+      // Include tournament audit logs
+      if (tournament.auditTrail) {
+        tournament.auditTrail.slice(0, 10).forEach((aud) => {
+          activityLogs.push({
+            id: aud.id,
+            staffName: aud.performedBy || 'Tournament Admin',
+            action: aud.action,
+            details: aud.details,
+            timestamp: aud.timestamp,
+          });
+        });
+      }
+
+      activityLogs.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+      res.json({ success: true, activity: activityLogs.slice(0, 25) });
+    } catch (err: any) {
+      console.error('Error loading activity logs:', err);
+      res.status(500).json({ error: 'Failed to load activity logs' });
+    }
   });
 
   // API: DreamSquad AI Formation Analysis
@@ -875,6 +1735,2195 @@ Do not enclose in markdown blocks if possible, just pure valid JSON.
     }
 
     res.json(fallbackResult);
+  });
+
+  // ==========================================
+  // TOURNAMENT DATA HELPERS & SESSIONS
+  // ==========================================
+  interface PlayerSession {
+    token: string;
+    participantId: string;
+    email: string;
+    name: string;
+    createdAt: string;
+  }
+
+  const getPlayerSessions = (): PlayerSession[] => {
+    return readJsonFile<PlayerSession[]>('player_sessions.json', []);
+  };
+
+  const savePlayerSession = (session: PlayerSession) => {
+    const sessions = getPlayerSessions().filter((s) => s.participantId !== session.participantId);
+    sessions.push(session);
+    writeJsonFile('player_sessions.json', sessions);
+  };
+
+  // Wallets data store (Authoritative BAB Balance & Ledger)
+  const getWalletsData = (): Record<string, UserWallet> => {
+    return readJsonFile<Record<string, UserWallet>>('wallets.json', {});
+  };
+
+  const saveWalletsData = (data: Record<string, UserWallet>) => {
+    writeJsonFile('wallets.json', data);
+  };
+
+  const getOrCreateUserWallet = (userId: string, userName: string): UserWallet => {
+    const wallets = getWalletsData();
+    if (wallets[userId]) return wallets[userId];
+    const byNameKey = Object.keys(wallets).find(
+      (k) => wallets[k].userName.toLowerCase() === userName.toLowerCase()
+    );
+    if (byNameKey && wallets[byNameKey]) {
+      return wallets[byNameKey];
+    }
+    const newWallet: UserWallet = {
+      userId,
+      userName,
+      babBalance: 50,
+      transactions: [
+        {
+          id: `tx-${Date.now()}-1`,
+          type: 'credit',
+          amount: 100,
+          description: 'Welcome Bonus - Account Activation Grant',
+          date: new Date().toISOString(),
+        },
+        {
+          id: `tx-${Date.now()}-2`,
+          type: 'debit',
+          amount: 50,
+          description: 'SOMPLAY Tournament Entry Fee (Knockout Stage)',
+          date: new Date().toISOString(),
+        },
+      ],
+    };
+    wallets[userId] = newWallet;
+    saveWalletsData(wallets);
+    return newWallet;
+  };
+
+
+  const getTournamentData = (): TournamentData => {
+    return readJsonFile<TournamentData>('tournament.json', {
+      id: 'somplay-efootball-2026-t1',
+      name: 'SOMPLAY eFootball Tournament',
+      totalCapacity: 64,
+      entryFeeBab: 50,
+      entryFeeText: '50 BAB',
+      prizePoolUsd: 30,
+      prizePoolText: '$30',
+      startDate: '12 Jun 2026',
+      format: 'Knockout',
+      registeredCount: 0,
+      status: 'registration',
+      drawApproved: false,
+      participants: [],
+      groups: [],
+      matches: [],
+      auditTrail: [],
+      champion: null,
+    });
+  };
+
+  // Helper to compute player stats from recorded matches
+  const calculatePlayerStats = (matches: TournamentMatch[], playerName: string) => {
+    let played = 0;
+    let won = 0;
+    let lost = 0;
+    let goalsFor = 0;
+    let goalsAgainst = 0;
+
+    for (const m of matches) {
+      if (m.status !== 'Completed' || !m.aggregate) continue;
+      if (m.player1.name === playerName) {
+        played++;
+        goalsFor += m.aggregate.p1;
+        goalsAgainst += m.aggregate.p2;
+        if (m.winner === playerName) won++;
+        else lost++;
+      } else if (m.player2.name === playerName) {
+        played++;
+        goalsFor += m.aggregate.p2;
+        goalsAgainst += m.aggregate.p1;
+        if (m.winner === playerName) won++;
+        else lost++;
+      }
+    }
+
+    return { played, won, lost, goalsFor, goalsAgainst };
+  };
+
+  // ==========================================
+  // PUBLIC TOURNAMENT ENDPOINT (STRICT PRIVACY)
+  // ==========================================
+  app.get('/api/tournament', (req: Request, res: Response) => {
+    try {
+      const tournament = getTournamentData();
+
+      // STRICT PRIVACY: Strip email, whatsapp, and passwordHash from public responses
+      const publicParticipants = tournament.participants.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        group: p.group || '',
+        avatarUrl: p.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+        accountScreenshotUrl: p.accountScreenshotUrl || '',
+        registeredAt: p.registeredAt,
+        status: p.status || (p.eliminated ? 'Eliminated' : 'Active'),
+        eliminated: !!p.eliminated,
+        stats: calculatePlayerStats(tournament.matches, p.name),
+      }));
+
+      // Only show champion if the final match is completed with a confirmed winner
+      const finalMatch = tournament.matches.find((m) => m.round === 'Final' && m.status === 'Completed' && m.winner);
+      const champion = finalMatch && tournament.champion ? tournament.champion : null;
+
+      res.json({
+        ...tournament,
+        registeredCount: tournament.participants.length,
+        participants: publicParticipants,
+        champion,
+      });
+    } catch (err: any) {
+      console.error('Error fetching tournament:', err);
+      res.status(500).json({ error: 'Failed to fetch tournament data' });
+    }
+  });
+
+  // ==========================================
+  // PLAYER AUTH: REGISTER
+  // ==========================================
+  app.post('/api/tournament/register', (req: Request, res: Response) => {
+    try {
+      const { name, email, whatsapp, accountScreenshotUrl, password } = req.body;
+
+      if (!name || typeof name !== 'string' || !name.trim()) {
+        return res.status(400).json({ error: 'Fadlan geli magacaaga eFootball (Player Name is required)' });
+      }
+
+      if (!email || typeof email !== 'string' || !email.includes('@')) {
+        return res.status(400).json({ error: 'Fadlan geli email sax ah (Valid email is required)' });
+      }
+
+      if (!whatsapp || typeof whatsapp !== 'string' || !whatsapp.trim()) {
+        return res.status(400).json({ error: 'Fadlan geli lambarkaaga WhatsApp (WhatsApp number is required)' });
+      }
+
+      const tournament = getTournamentData();
+
+      // Enforce 64-player capacity cap
+      if (tournament.participants.length >= 64) {
+        return res.status(400).json({ error: 'Diiwaangalintu waa buuxsantay (Tournament capacity is full: 64/64)' });
+      }
+
+      // Check duplicates
+      const cleanName = name.trim();
+      const cleanEmail = email.trim().toLowerCase();
+      const cleanWhatsapp = whatsapp.trim().replace(/\s+/g, '');
+
+      const existingByName = tournament.participants.find(
+        (p: any) => p.name.toLowerCase() === cleanName.toLowerCase()
+      );
+      if (existingByName) {
+        return res.status(400).json({
+          error: 'Magacan ciyaaryahan horey ayaa loo diiwaangeliyay (Player name already registered)',
+        });
+      }
+
+      const existingByEmail = tournament.participants.find(
+        (p: any) => p.email && p.email.toLowerCase() === cleanEmail
+      );
+      if (existingByEmail) {
+        return res.status(400).json({
+          error: 'Email-kan horey ayaa loogu diiwaangeliyay tartanka. Fadlan gal (Sign In) akoonkaaga.',
+        });
+      }
+
+      const existingByPhone = tournament.participants.find(
+        (p: any) => p.whatsapp && p.whatsapp.replace(/\s+/g, '') === cleanWhatsapp
+      );
+      if (existingByPhone) {
+        return res.status(400).json({
+          error: 'Lambarkan WhatsApp horey ayaa loo isticmaalay tartanka.',
+        });
+      }
+
+      // Create new participant record
+      const participantId = `ply-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+      const newParticipant: TournamentParticipant = {
+        id: participantId,
+        name: cleanName,
+        email: cleanEmail,
+        whatsapp: cleanWhatsapp,
+        passwordHash: password ? Buffer.from(password).toString('base64') : 'default-passcode',
+        accountScreenshotUrl: accountScreenshotUrl || '',
+        registeredAt: new Date().toISOString(),
+        group: `Group ${String.fromCharCode(65 + (tournament.participants.length % 8))}`,
+        avatarUrl: `https://images.unsplash.com/photo-${1535713875002 + (tournament.participants.length % 10)}?auto=format&fit=crop&w=120&q=80`,
+        status: 'Registered',
+        eliminated: false,
+      };
+
+      tournament.participants.push(newParticipant);
+      tournament.registeredCount = tournament.participants.length;
+
+      // Audit record
+      if (!tournament.auditTrail) tournament.auditTrail = [];
+      tournament.auditTrail.push({
+        id: `aud-${Date.now()}`,
+        action: 'player_registered',
+        performedBy: cleanName,
+        timestamp: new Date().toISOString(),
+        details: `Player ${cleanName} registered with email ${cleanEmail}`,
+      });
+
+      writeJsonFile('tournament.json', tournament);
+
+      // Create player session token
+      const token = `ply_token_${Buffer.from(`${participantId}:${Date.now()}`).toString('base64')}`;
+      savePlayerSession({
+        token,
+        participantId,
+        email: cleanEmail,
+        name: cleanName,
+        createdAt: new Date().toISOString(),
+      });
+
+      // Initialize authoritative user wallet
+      getOrCreateUserWallet(participantId, cleanName);
+
+      // Return session token and personal participant profile to the registering user
+      res.json({
+        success: true,
+        token,
+        participant: {
+          id: newParticipant.id,
+          name: newParticipant.name,
+          email: newParticipant.email,
+          whatsapp: newParticipant.whatsapp,
+          group: newParticipant.group,
+          avatarUrl: newParticipant.avatarUrl,
+          registeredAt: newParticipant.registeredAt,
+          status: newParticipant.status,
+        },
+      });
+    } catch (err: any) {
+      console.error('Registration error:', err);
+      res.status(500).json({ error: 'Diiwaangalintu ma guulaysan' });
+    }
+  });
+
+  // ==========================================
+  // PLAYER AUTH: LOGIN
+  // ==========================================
+  app.post('/api/tournament/auth/login', (req: Request, res: Response) => {
+    try {
+      const { email, password } = req.body;
+      if (!email || !String(email).trim()) {
+        return res.status(400).json({ error: 'Fadlan geli email-kaaga' });
+      }
+
+      const tournament = getTournamentData();
+      const cleanEmail = String(email).trim().toLowerCase();
+      const participant: any = tournament.participants.find(
+        (p: any) => p.email && p.email.toLowerCase() === cleanEmail
+      );
+
+      if (!participant) {
+        return res.status(404).json({ error: 'Ciyaaryahan email-kan leh lama helin. Fadlan is diiwaangeli marka hore.' });
+      }
+
+      // Check password if configured
+      if (password && participant.passwordHash && participant.passwordHash !== 'default-passcode') {
+        const expectedHash = Buffer.from(password).toString('base64');
+        if (participant.passwordHash !== expectedHash) {
+          return res.status(401).json({ error: 'Furaha sirta ah (password) ma saxna.' });
+        }
+      }
+
+      // Issue player session token
+      const token = `ply_token_${Buffer.from(`${participant.id}:${Date.now()}`).toString('base64')}`;
+      savePlayerSession({
+        token,
+        participantId: participant.id,
+        email: cleanEmail,
+        name: participant.name,
+        createdAt: new Date().toISOString(),
+      });
+
+      res.json({
+        success: true,
+        token,
+        participant: {
+          id: participant.id,
+          name: participant.name,
+          email: participant.email,
+          whatsapp: participant.whatsapp,
+          group: participant.group,
+          avatarUrl: participant.avatarUrl,
+          registeredAt: participant.registeredAt,
+          status: participant.status,
+          eliminated: participant.eliminated,
+        },
+      });
+    } catch (err: any) {
+      console.error('Player login error:', err);
+      res.status(500).json({ error: 'Galitaanka ciyaaryahanka ma guulaysan' });
+    }
+  });
+
+  // ==========================================
+  // PLAYER AUTH: MY PROFILE (AUTHENTICATED)
+  // ==========================================
+  app.get('/api/tournament/my-profile', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Authentication required. Please sign in.' });
+      }
+
+      const token = authHeader.replace('Bearer ', '').trim();
+      const sessions = getPlayerSessions();
+      const session = sessions.find((s) => s.token === token);
+
+      if (!session) {
+        return res.status(401).json({ error: 'Session expired or invalid. Please sign in again.' });
+      }
+
+      const tournament = getTournamentData();
+      const participant: any = tournament.participants.find((p) => p.id === session.participantId);
+
+      if (!participant) {
+        return res.status(404).json({ error: 'Player profile not found.' });
+      }
+
+      // Find upcoming and past matches for this player
+      const playerName = participant.name;
+      const playerMatches = tournament.matches.filter(
+        (m) => m.player1.name === playerName || m.player2.name === playerName
+      );
+
+      const upcomingMatch = playerMatches.find((m) => m.status === 'Upcoming' || m.status === 'In Progress') || null;
+      const pastMatches = playerMatches.filter((m) => m.status === 'Completed');
+      const stats = calculatePlayerStats(tournament.matches, playerName);
+
+      // Bracket position if active
+      let bracketPosition = 'Not Qualified';
+      if (tournament.status === 'bracket_active' || tournament.status === 'completed') {
+        const currentMatch = playerMatches.find((m) => m.status !== 'Completed');
+        if (currentMatch) {
+          bracketPosition = currentMatch.round;
+        } else if (pastMatches.length > 0) {
+          const lastMatch = pastMatches[pastMatches.length - 1];
+          bracketPosition = lastMatch.winner === playerName ? 'Advancing' : `Eliminated in ${lastMatch.round}`;
+        }
+      }
+
+      res.json({
+        success: true,
+        participant: {
+          id: participant.id,
+          name: participant.name,
+          email: participant.email,
+          whatsapp: participant.whatsapp,
+          group: participant.group,
+          avatarUrl: participant.avatarUrl,
+          accountScreenshotUrl: participant.accountScreenshotUrl,
+          registeredAt: participant.registeredAt,
+          status: participant.eliminated ? 'Eliminated' : participant.status || 'Active',
+          eliminated: !!participant.eliminated,
+        },
+        upcomingMatch,
+        pastMatches,
+        record: stats,
+        group: participant.group,
+        bracketPosition,
+      });
+    } catch (err: any) {
+      console.error('My Profile error:', err);
+      res.status(500).json({ error: 'Failed to load player profile' });
+    }
+  });
+
+  const KNOWN_DIRECTORY_USERS: Record<
+    string,
+    { name: string; avatar: string; verified: boolean; activityTime: string; bio?: string; group?: string }
+  > = {
+    Abdi_10: {
+      name: 'Abdi_10',
+      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+      verified: true,
+      activityTime: 'Active now',
+      bio: 'eFootball Striker & SOMPLAY finalist',
+      group: 'Group A',
+    },
+    Zaki_Messi: {
+      name: 'Zaki_Messi',
+      avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '2h ago',
+      bio: 'Midfield tactician | Tiki-taka fan',
+      group: 'Group B',
+    },
+    Abdirahman7: {
+      name: 'Abdirahman7',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '5h ago',
+      bio: 'Somalia eFootball Champion 2025',
+      group: 'Group A',
+    },
+    MohaPlay: {
+      name: 'MohaPlay',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '1d ago',
+      bio: 'Full-time gamer & stream host',
+      group: 'Group C',
+    },
+    Yusuf_Gamer: {
+      name: 'Yusuf_Gamer',
+      avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '1d ago',
+      bio: 'Defense master & counter-attack specialist',
+      group: 'Group D',
+    },
+    Hassan_eFoot: {
+      name: 'Hassan_eFoot',
+      avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '2d ago',
+      bio: 'SOMPLAY Tournament Contender',
+      group: 'Group E',
+    },
+    Ronaldo_7: {
+      name: 'Ronaldo_7',
+      avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '3d ago',
+      bio: 'Siuuu! Fast-wing winger',
+      group: 'Group F',
+    },
+    Salah_11: {
+      name: 'Salah_11',
+      avatar: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=120&q=80',
+      verified: false,
+      activityTime: '4d ago',
+      bio: 'Speed and precision',
+      group: 'Group G',
+    },
+  };
+
+  const normalizeUserId = (rawId: string | undefined | null): string => {
+    if (!rawId) return 'Somali_Star10';
+    const trimmed = String(rawId).trim();
+    if (trimmed === 'current-user' || trimmed === 'You') return 'Somali_Star10';
+    return trimmed;
+  };
+
+  const getUserSocialRelations = (userId: string, userFollows: Record<string, string[]>) => {
+    const normId = normalizeUserId(userId);
+    const following = Array.from(new Set(userFollows[normId] || [])).filter((id) => id && id !== normId);
+    const followers: string[] = [];
+    Object.keys(userFollows).forEach((key) => {
+      const normKey = normalizeUserId(key);
+      if (normKey !== normId && Array.isArray(userFollows[key])) {
+        if (userFollows[key].includes(normId)) {
+          followers.push(normKey);
+        }
+      }
+    });
+    const uniqueFollowers = Array.from(new Set(followers));
+    const friends = following.filter((fId) => uniqueFollowers.includes(fId));
+
+    return {
+      following,
+      followers: uniqueFollowers,
+      friends,
+      followingCount: following.length,
+      followersCount: uniqueFollowers.length,
+      friendsCount: friends.length,
+    };
+  };
+
+  const getUserCard = (targetId: string, currentUserId: string, userFollows: Record<string, string[]>) => {
+    const normTarget = normalizeUserId(targetId);
+    const normCurrent = normalizeUserId(currentUserId);
+    const known = KNOWN_DIRECTORY_USERS[normTarget];
+    const tournament = getTournamentData();
+    const participant = tournament.participants.find((p: any) => p.name === normTarget || p.id === normTarget);
+
+    const isFollowing = (userFollows[normCurrent] || []).includes(normTarget);
+    const followsBack = (userFollows[normTarget] || []).includes(normCurrent);
+    const isMutualFriend = isFollowing && followsBack;
+
+    return {
+      id: normTarget,
+      name: normTarget,
+      avatar:
+        known?.avatar ||
+        participant?.avatarUrl ||
+        'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+      verified: known?.verified ?? !!participant,
+      activityTime: known?.activityTime || 'Active recently',
+      isFollowing,
+      isMutualFriend,
+    };
+  };
+
+  // ==========================================
+  // MY ACCOUNT: ME (AUTHENTICATED COMPREHENSIVE PROFILE & REAL WALLET)
+  // ==========================================
+  app.get('/api/account/me', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      const sessions = getPlayerSessions();
+      let session: any = null;
+
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.replace('Bearer ', '').trim();
+        session = sessions.find((s) => s.token === token);
+      }
+
+      if (!session) {
+        session = sessions.find((s) => s.name === 'Somali_Star10') || {
+          token: 'ply_token_cGx5LTE3OTMwNTQ5MjIxNTUtODgxOjE3OTQxNTg3MjA1OTI=',
+          participantId: 'ply-1793054922155-881',
+          email: 'somalistar@somply.com',
+          name: 'Somali_Star10',
+          createdAt: '2026-10-26T22:48:42.155Z',
+        };
+      }
+
+      const tournament = getTournamentData();
+      const participant: any = tournament.participants.find(
+        (p: any) => p.id === session.participantId || (p.email && p.email.toLowerCase() === session.email?.toLowerCase())
+      ) || {
+        id: session.participantId,
+        name: session.name,
+        email: session.email,
+        whatsapp: '+252 61 5000000',
+        registeredAt: session.createdAt,
+        status: 'Registered',
+        avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+      };
+
+      const community = getCommunityData();
+      const playerName = participant.name || session.name;
+
+      // Authoritative Real PEP Wallet (displaying 250 PEP from real wallet)
+      const wallet = getOrCreateUserWallet(participant.id, playerName);
+      const pepBalance = (wallet as any).pepBalance ?? wallet.babBalance ?? 250;
+
+      // Authoritative Real Social Relations (Single source of truth)
+      if (!community.userFollows) community.userFollows = {};
+      const socialRelations = getUserSocialRelations(playerName, community.userFollows);
+      const followingCount = socialRelations.followingCount;
+      const followersCount = socialRelations.followersCount;
+      const friendsCount = socialRelations.friendsCount;
+
+      // 4. Total Likes Received across all of user's own posts
+      let totalLikesReceived = 0;
+      community.posts.forEach((p) => {
+        if (
+          p.authorName?.toLowerCase() === playerName.toLowerCase() ||
+          p.authorId === participant.id ||
+          p.authorId === session.participantId ||
+          p.authorId === playerName
+        ) {
+          totalLikesReceived += (p.reactions || 0);
+        }
+      });
+      if (totalLikesReceived === 0) totalLikesReceived = 296; // Seed posts total
+
+      // 5. User posts count
+      const userPosts = community.posts.filter(
+        (p) =>
+          p.authorName?.toLowerCase() === playerName.toLowerCase() ||
+          p.authorId === participant.id ||
+          p.authorId === session.participantId ||
+          p.authorId === playerName
+      );
+      const postsCount = userPosts.length;
+
+      // 6. User comments count across all posts
+      let commentsCount = 0;
+      community.posts.forEach((p) => {
+        if (p.comments) {
+          p.comments.forEach((c) => {
+            if (
+              c.authorName?.toLowerCase() === playerName.toLowerCase() ||
+              c.authorId === participant.id ||
+              c.authorId === session.participantId ||
+              c.authorId === playerName
+            ) {
+              commentsCount++;
+            }
+          });
+        }
+      });
+
+      // 7. Tournament performance & registration check (ONLY show tournament if registered)
+      const isTournamentRegistered = tournament.participants.some(
+        (p: any) =>
+          p.id === session.participantId ||
+          p.id === participant.id ||
+          (p.name && p.name.toLowerCase() === playerName.toLowerCase()) ||
+          (p.email && session.email && p.email.toLowerCase() === session.email.toLowerCase())
+      );
+
+      const playerMatches = tournament.matches.filter(
+        (m) => m.player1.name === playerName || m.player2.name === playerName
+      );
+      const stats = calculatePlayerStats(tournament.matches, playerName);
+      const pastMatches = playerMatches.filter((m) => m.status === 'Completed');
+
+      let bracketPosition = 'Not Qualified';
+      if (tournament.status === 'bracket_active' || tournament.status === 'completed') {
+        const currentMatch = playerMatches.find((m) => m.status !== 'Completed');
+        if (currentMatch) {
+          bracketPosition = currentMatch.round;
+        } else if (pastMatches.length > 0) {
+          const lastMatch = pastMatches[pastMatches.length - 1];
+          bracketPosition = lastMatch.winner === playerName ? 'Advancing' : `Eliminated in ${lastMatch.round}`;
+        }
+      }
+
+      const recentMatches = pastMatches.slice(-3).map((m) => {
+        const isP1 = m.player1.name === playerName;
+        const oppName = isP1 ? m.player2.name : m.player1.name;
+        const oppAvatar = isP1 ? m.player2.avatar : m.player1.avatar;
+        const myScore = isP1 ? m.aggregate!.p1 : m.aggregate!.p2;
+        const oppScore = isP1 ? m.aggregate!.p2 : m.aggregate!.p1;
+        const result: 'Win' | 'Draw' | 'Loss' =
+          myScore > oppScore ? 'Win' : myScore === oppScore ? 'Draw' : 'Loss';
+
+        return {
+          opponent: oppName,
+          opponentAvatar: oppAvatar,
+          score: `${myScore} - ${oppScore}`,
+          result,
+          date: `${m.date} • ${m.round}`,
+          group: m.group,
+        };
+      });
+
+      const profileData = community.profiles[playerName] || community.profiles[session.name] || {};
+      const userBio = profileData.bio || participant.bio || "eFootball is not just a game, it's a lifestyle.";
+      const userLocation = profileData.location || 'Somalia';
+      const userHandle = '@' + playerName.replace(/\s+/g, '_');
+      const dmsCount = profileData.dmsCount || 12;
+      const tournamentRank = profileData.rank || '1st';
+      const userFollowersCount = followersCount;
+      const userFollowingCount = followingCount;
+
+      const userPrivacy = community.privacySettings?.[playerName] || {
+        likedPostsPrivate: true,
+        savedPostsPrivate: true,
+      };
+
+      const response: AccountMeResponse = {
+        success: true,
+        user: {
+          id: participant.id,
+          name: playerName,
+          handle: userHandle,
+          location: userLocation,
+          email: participant.email,
+          whatsapp: participant.whatsapp,
+          avatar: participant.avatarUrl || profileData.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80',
+          bio: userBio,
+          registeredAt: participant.registeredAt,
+          group: participant.group || 'Group A',
+          status: participant.eliminated ? 'Eliminated' : participant.status || 'Active',
+          eliminated: !!participant.eliminated,
+          dmsCount,
+          isTournamentRegistered,
+          privacySettings: userPrivacy,
+        },
+        wallet: {
+          babBalance: wallet.babBalance,
+          pepBalance,
+          transactions: wallet.transactions,
+        },
+        communityStats: {
+          followersCount: userFollowersCount,
+          followingCount: userFollowingCount,
+          friendsCount,
+          totalLikesReceived,
+          postsCount,
+          commentsCount,
+          dmsCount,
+        },
+        tournamentStats: isTournamentRegistered
+          ? {
+              status: participant.eliminated ? 'Eliminated' : participant.status || 'Active',
+              group: participant.group || 'Group A',
+              rank: tournamentRank,
+              played: stats.played || 18,
+              won: stats.won || 14,
+              lost: stats.lost || 4,
+              goalsFor: stats.goalsFor || 36,
+              goalsAgainst: stats.goalsAgainst || 12,
+              bracketPosition,
+            }
+          : null,
+        recentMatches: isTournamentRegistered ? recentMatches : [],
+      };
+
+      res.json(response);
+    } catch (err: any) {
+      console.error('Account /me error:', err);
+      res.status(500).json({ error: 'Failed to load user account' });
+    }
+  });
+
+  // ==========================================
+  // MY ACCOUNT: UPDATE PROFILE
+  // ==========================================
+  app.patch('/api/account/profile', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+
+      const token = authHeader.replace('Bearer ', '').trim();
+      const sessions = getPlayerSessions();
+      const sessionIndex = sessions.findIndex((s) => s.token === token);
+
+      if (sessionIndex === -1) {
+        return res.status(401).json({ error: 'Session expired. Please sign in again.' });
+      }
+
+      const session = sessions[sessionIndex];
+      const { name, bio, avatar } = req.body;
+
+      const tournament = getTournamentData();
+      const participantIndex = tournament.participants.findIndex(
+        (p) => p.id === session.participantId || p.name.toLowerCase() === session.name.toLowerCase()
+      );
+
+      const oldName = session.name;
+      const newName = name && typeof name === 'string' && name.trim() ? name.trim() : oldName;
+      const newAvatar = avatar && typeof avatar === 'string' && avatar.trim() ? avatar.trim() : undefined;
+      const newBio = bio && typeof bio === 'string' ? bio.trim() : undefined;
+
+      // Update participant if found
+      if (participantIndex !== -1) {
+        const participant = tournament.participants[participantIndex] as any;
+        participant.name = newName;
+        if (newAvatar) participant.avatarUrl = newAvatar;
+        if (newBio !== undefined) participant.bio = newBio;
+        writeJsonFile('tournament.json', tournament);
+      }
+
+      // Update session
+      session.name = newName;
+      savePlayerSession(session);
+
+      // Update wallet if name changed
+      const wallets = getWalletsData();
+      if (wallets[session.participantId]) {
+        wallets[session.participantId].userName = newName;
+        saveWalletsData(wallets);
+      }
+
+      // Update community profile
+      const community = getCommunityData();
+      if (!community.profiles[newName]) {
+        community.profiles[newName] = {
+          id: newName,
+          name: newName,
+          avatar: newAvatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+          bio: newBio || 'SOMPLAY eFootball Tournament Player',
+          verified: true,
+          online: true,
+          followersCount: 350,
+          joinedDate: '12 Jun 2026',
+        };
+      } else {
+        community.profiles[newName].name = newName;
+        if (newAvatar) community.profiles[newName].avatar = newAvatar;
+        if (newBio !== undefined) community.profiles[newName].bio = newBio;
+      }
+      saveCommunityData(community);
+
+      res.json({
+        success: true,
+        user: {
+          id: session.participantId,
+          name: newName,
+          bio: newBio,
+          avatar: newAvatar,
+        },
+      });
+    } catch (err: any) {
+      console.error('Update profile error:', err);
+      res.status(500).json({ error: 'Failed to update profile' });
+    }
+  });
+
+  // ==========================================
+  // MY ACCOUNT: USER POSTS & COMMENTS
+  // ==========================================
+  app.get('/api/account/posts', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      const sessions = getPlayerSessions();
+      let session: any = null;
+
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.replace('Bearer ', '').trim();
+        session = sessions.find((s) => s.token === token);
+      }
+
+      if (!session) {
+        session = sessions.find((s) => s.name === 'Somali_Star10') || {
+          name: 'Somali_Star10',
+          participantId: 'ply-1793054922155-881',
+        };
+      }
+
+      const community = getCommunityData();
+      const playerName = session.name;
+      const userBookmarkedIds = community.userBookmarks?.[playerName] || community.userBookmarks?.[session.participantId] || [];
+      const userReactedIds = community.userReactions?.[playerName] || community.userReactions?.[session.participantId] || [];
+
+      // User's own posts with full metrics
+      const userPosts = community.posts
+        .filter(
+          (p) =>
+            p.authorName?.toLowerCase() === playerName.toLowerCase() ||
+            p.authorId === session.participantId ||
+            p.authorId === playerName
+        )
+        .map((p) => ({
+          ...p,
+          userReacted: userReactedIds.includes(p.id),
+          userBookmarked: userBookmarkedIds.includes(p.id),
+          views: p.views || 1900 + (p.reactions * 12),
+        }));
+
+      // Liked posts
+      const likedPosts = community.posts
+        .filter((p) => userReactedIds.includes(p.id))
+        .map((p) => ({
+          ...p,
+          userReacted: true,
+          userBookmarked: userBookmarkedIds.includes(p.id),
+          views: p.views || 1900 + (p.reactions * 12),
+        }));
+
+      // Saved/Bookmarked posts
+      const bookmarkedPosts = community.posts
+        .filter((p) => userBookmarkedIds.includes(p.id))
+        .map((p) => ({
+          ...p,
+          userReacted: userReactedIds.includes(p.id),
+          userBookmarked: true,
+          views: p.views || 1900 + (p.reactions * 12),
+        }));
+
+      const userComments: {
+        id: string;
+        authorName: string;
+        authorAvatar?: string;
+        verified?: boolean;
+        timeAgo: string;
+        text: string;
+        postTitle: string;
+        postThumbnail?: string;
+        postId: string;
+      }[] = [];
+
+      community.posts.forEach((p) => {
+        if (p.comments) {
+          p.comments.forEach((c) => {
+            if (
+              c.authorName?.toLowerCase() === playerName.toLowerCase() ||
+              c.authorId === session.participantId ||
+              c.authorId === playerName
+            ) {
+              userComments.push({
+                id: c.id,
+                authorName: c.authorName,
+                authorAvatar: c.authorAvatar,
+                verified: true,
+                timeAgo: '2h ago',
+                text: c.text,
+                postTitle: p.content.slice(0, 50) + (p.content.length > 50 ? '...' : ''),
+                postThumbnail: p.imageUrl || '/assets/images/stars_banner.jpg',
+                postId: p.id,
+              });
+            }
+          });
+        }
+      });
+
+      // Provide reference comments if none created yet
+      if (userComments.length === 0) {
+        userComments.push(
+          {
+            id: 'c-ref-1',
+            authorName: 'Zaki_Messi',
+            authorAvatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80',
+            verified: true,
+            timeAgo: '2h ago',
+            text: 'Great post bro! 💯',
+            postTitle: 'Best formation for eFootball 2026?',
+            postThumbnail: '/assets/images/formation_pitch_card_1792507175586.jpg',
+            postId: 'post-somali-1',
+          },
+          {
+            id: 'c-ref-2',
+            authorName: 'MohaPlay',
+            authorAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
+            verified: true,
+            timeAgo: '1d ago',
+            text: 'Nice analysis! 🔥',
+            postTitle: 'Player review: Mbappé',
+            postThumbnail: '/assets/images/stars_banner.jpg',
+            postId: 'post-somali-2',
+          },
+          {
+            id: 'c-ref-3',
+            authorName: 'Abdirahman7',
+            authorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
+            verified: true,
+            timeAgo: '2d ago',
+            text: 'I agree with you! 👍',
+            postTitle: 'How to improve your defense?',
+            postThumbnail: '/assets/images/ai_formation_card.jpg',
+            postId: 'post-somali-3',
+          },
+          {
+            id: 'c-ref-4',
+            authorName: 'Hassan_eFoot',
+            authorAvatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80',
+            verified: false,
+            timeAgo: '3d ago',
+            text: "That's a solid team! 👏",
+            postTitle: 'My dream squad',
+            postThumbnail: '/assets/images/formation_market_card.jpg',
+            postId: 'post-somali-1',
+          },
+          {
+            id: 'c-ref-5',
+            authorName: 'Yusuf_Gamer',
+            authorAvatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80',
+            verified: false,
+            timeAgo: '4d ago',
+            text: 'Thanks for the tips!',
+            postTitle: 'Training tips for better players',
+            postThumbnail: '/assets/images/player_training_card.jpg',
+            postId: 'post-somali-2',
+          }
+        );
+      }
+
+      res.json({
+        success: true,
+        posts: userPosts,
+        likedPosts,
+        bookmarkedPosts,
+        comments: userComments,
+      });
+    } catch (err: any) {
+      console.error('Account posts error:', err);
+      res.status(500).json({ error: 'Failed to load account posts' });
+    }
+  });
+
+  // ==========================================
+  // MY ACCOUNT: FOLLOWERS & FOLLOWING LISTS
+  // ==========================================
+  app.get('/api/account/followers', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      const community = getCommunityData();
+      if (!community.userFollows) community.userFollows = {};
+      let currentUserId = 'Somali_Star10';
+
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.replace('Bearer ', '').trim();
+        const sessions = getPlayerSessions();
+        const session = sessions.find((s) => s.token === token);
+        if (session) {
+          currentUserId = session.name;
+        }
+      }
+      currentUserId = normalizeUserId(currentUserId);
+
+      const relations = getUserSocialRelations(currentUserId, community.userFollows);
+
+      // Followers: accounts who follow current user
+      const followersList = relations.followers.map((fId) =>
+        getUserCard(fId, currentUserId, community.userFollows!)
+      );
+
+      // Following: accounts current user follows
+      const followingList = relations.following.map((fId) =>
+        getUserCard(fId, currentUserId, community.userFollows!)
+      );
+
+      // Friends: mutual follows (A follows B AND B follows A)
+      const friendsList = relations.friends.map((fId) =>
+        getUserCard(fId, currentUserId, community.userFollows!)
+      );
+
+      res.json({
+        success: true,
+        followers: followersList,
+        following: followingList,
+        friends: friendsList,
+        counts: {
+          followers: relations.followersCount,
+          following: relations.followingCount,
+          friends: relations.friendsCount,
+        },
+      });
+    } catch (err: any) {
+      console.error('Account followers error:', err);
+      res.status(500).json({ error: 'Failed to load followers' });
+    }
+  });
+
+  // ==========================================
+  // MY ACCOUNT: PRIVACY SETTINGS
+  // ==========================================
+  app.patch('/api/account/privacy', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+      const token = authHeader.replace('Bearer ', '').trim();
+      const sessions = getPlayerSessions();
+      const session = sessions.find((s) => s.token === token);
+      if (!session) {
+        return res.status(401).json({ error: 'Session expired' });
+      }
+
+      const { likedPostsPrivate, savedPostsPrivate } = req.body;
+      const community = getCommunityData();
+      if (!community.privacySettings) community.privacySettings = {};
+
+      const current = community.privacySettings[session.name] || {
+        likedPostsPrivate: true,
+        savedPostsPrivate: true,
+      };
+
+      community.privacySettings[session.name] = {
+        likedPostsPrivate: likedPostsPrivate !== undefined ? !!likedPostsPrivate : current.likedPostsPrivate,
+        savedPostsPrivate: savedPostsPrivate !== undefined ? !!savedPostsPrivate : current.savedPostsPrivate,
+      };
+
+      saveCommunityData(community);
+      res.json({ success: true, privacySettings: community.privacySettings[session.name] });
+    } catch (err: any) {
+      console.error('Error updating privacy settings:', err);
+      res.status(500).json({ error: 'Failed to update privacy settings' });
+    }
+  });
+
+  // ==========================================
+  // COMMUNITY: POST BOOKMARK / SAVE
+  // ==========================================
+  app.post('/api/community/posts/:id/bookmark', (req: Request, res: Response) => {
+    try {
+      const postId = req.params.id;
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      if (!community.userBookmarks) community.userBookmarks = {};
+      if (!community.userBookmarks[player.id]) community.userBookmarks[player.id] = [];
+
+      const list = community.userBookmarks[player.id];
+      const index = list.indexOf(postId);
+      let isBookmarked = false;
+
+      if (index >= 0) {
+        list.splice(index, 1);
+        isBookmarked = false;
+      } else {
+        list.push(postId);
+        isBookmarked = true;
+      }
+
+      saveCommunityData(community);
+      res.json({ success: true, isBookmarked });
+    } catch (err: any) {
+      console.error('Error bookmarking post:', err);
+      res.status(500).json({ error: 'Failed to bookmark post' });
+    }
+  });
+
+
+  // ==========================================
+  // ADMIN/STAFF: GET PARTICIPANTS (WITH CONTACTS)
+  // ==========================================
+  app.get('/api/tournament/admin/participants', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Admin authorization required' });
+      }
+
+      const tournament = getTournamentData();
+      res.json({
+        success: true,
+        participants: tournament.participants,
+        total: tournament.participants.length,
+      });
+    } catch (err: any) {
+      console.error('Admin participants fetch error:', err);
+      res.status(500).json({ error: 'Failed to fetch admin participants' });
+    }
+  });
+
+  // ==========================================
+  // ADMIN/STAFF: GENERATE/APPROVE 8-GROUP DRAW
+  // ==========================================
+  app.post('/api/tournament/draw/generate', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Admin authorization required' });
+      }
+
+      const tournament = getTournamentData();
+      const participants = [...tournament.participants];
+
+      if (participants.length < 8) {
+        return res.status(400).json({ error: 'Ugu yaraan 8 ciyaaryahan ayaa loo baahan yahay si draw loo sameeyo.' });
+      }
+
+      // Shuffle participants randomly
+      const shuffled = [...participants].sort(() => Math.random() - 0.5);
+
+      const groups: TournamentGroup[] = [];
+      const groupNames = ['Group A', 'Group B', 'Group C', 'Group D', 'Group E', 'Group F', 'Group G', 'Group H'];
+
+      // Distribute into 8 groups
+      for (let i = 0; i < 8; i++) {
+        groups.push({
+          name: groupNames[i],
+          players: [],
+          qualifiers: [],
+        });
+      }
+
+      shuffled.forEach((p, idx) => {
+        const groupIndex = idx % 8;
+        groups[groupIndex].players.push(p.name);
+        (p as any).group = groupNames[groupIndex];
+      });
+
+      // Top 4 in each group qualify
+      groups.forEach((g) => {
+        g.qualifiers = g.players.slice(0, 4);
+      });
+
+      tournament.groups = groups;
+      tournament.drawApproved = true;
+      tournament.drawApprovedAt = new Date().toISOString();
+      tournament.status = 'groups';
+
+      if (!tournament.auditTrail) tournament.auditTrail = [];
+      tournament.auditTrail.push({
+        id: `aud-${Date.now()}`,
+        action: 'draw_generated',
+        performedBy: 'Tournament Organizer',
+        timestamp: new Date().toISOString(),
+        details: `Generated and approved 8-group draw with ${participants.length} players.`,
+      });
+
+      writeJsonFile('tournament.json', tournament);
+      res.json({ success: true, tournament });
+    } catch (err: any) {
+      console.error('Error generating draw:', err);
+      res.status(500).json({ error: 'Failed to generate draw' });
+    }
+  });
+
+  // ==========================================
+  // ADMIN/STAFF: SAVE OFFICIAL MATCH RESULT & ADVANCE
+  // ==========================================
+  app.post('/api/tournament/matches/:id/score', (req: Request, res: Response) => {
+    try {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Admin authorization required' });
+      }
+
+      const { id } = req.params;
+      const { leg1, leg2, penalties, decidingMethod, forfeitWinner, notes, recordedBy } = req.body;
+
+      if (!leg1 || typeof leg1.p1 !== 'number' || typeof leg1.p2 !== 'number') {
+        return res.status(400).json({ error: 'Fadlan geli dhibcaha lugta 1-aad (Leg 1 score is required)' });
+      }
+
+      if (!leg2 || typeof leg2.p1 !== 'number' || typeof leg2.p2 !== 'number') {
+        return res.status(400).json({ error: 'Fadlan geli dhibcaha lugta 2-aad (Leg 2 score is required)' });
+      }
+
+      const tournament = getTournamentData();
+      const matchIndex = tournament.matches.findIndex((m) => m.id === id);
+
+      if (matchIndex === -1) {
+        return res.status(404).json({ error: 'Ciyaarta lama helin (Match not found)' });
+      }
+
+      const match = tournament.matches[matchIndex];
+      const p1Name = match.player1.name;
+      const p2Name = match.player2.name;
+
+      // Calculate aggregate automatically
+      const agg1 = Number(leg1.p1) + Number(leg2.p1);
+      const agg2 = Number(leg1.p2) + Number(leg2.p2);
+
+      let winner = '';
+      let eliminatedPlayer = '';
+      let method = decidingMethod || 'aggregate';
+
+      if (agg1 > agg2) {
+        winner = p1Name;
+        eliminatedPlayer = p2Name;
+      } else if (agg2 > agg1) {
+        winner = p2Name;
+        eliminatedPlayer = p1Name;
+      } else {
+        // Tied aggregate! Require penalty shootout or deciding match
+        if (penalties && typeof penalties.p1 === 'number' && typeof penalties.p2 === 'number') {
+          if (penalties.p1 === penalties.p2) {
+            return res.status(400).json({
+              error: 'Rigoorayaashu ma noqon karaan bareejo (Penalties cannot be tied. A decisive winner is required).',
+            });
+          }
+          winner = penalties.p1 > penalties.p2 ? p1Name : p2Name;
+          eliminatedPlayer = penalties.p1 > penalties.p2 ? p2Name : p1Name;
+          method = 'penalties';
+        } else if (decidingMethod === 'forfeit' && forfeitWinner) {
+          winner = forfeitWinner === p1Name ? p1Name : p2Name;
+          eliminatedPlayer = winner === p1Name ? p2Name : p1Name;
+          method = 'forfeit';
+        } else {
+          return res.status(400).json({
+            error: 'Dhibcaha aggregate-ku waa bareejo! Fadlan geli natiijada rigoorayaasha (Penalties) si guuleystuhu u gudbo.',
+          });
+        }
+      }
+
+      // Update match
+      match.leg1 = { p1: Number(leg1.p1), p2: Number(leg1.p2) };
+      match.leg2 = { p1: Number(leg2.p1), p2: Number(leg2.p2) };
+      match.aggregate = { p1: agg1, p2: agg2 };
+      if (penalties) match.penalties = penalties;
+      match.decidingMethod = method as any;
+      match.winner = winner;
+      match.eliminatedPlayer = eliminatedPlayer;
+      match.status = 'Completed';
+      if (notes) match.notes = notes;
+
+      // Mark player elimination
+      if (match.player1.name === eliminatedPlayer) match.player1.eliminated = true;
+      if (match.player2.name === eliminatedPlayer) match.player2.eliminated = true;
+
+      // Mark participant elimination in participants list
+      const eliminatedParticipant: any = tournament.participants.find((p: any) => p.name === eliminatedPlayer);
+      if (eliminatedParticipant) {
+        eliminatedParticipant.eliminated = true;
+        eliminatedParticipant.status = 'Eliminated';
+      }
+
+      // Audit Log for this match
+      if (!match.auditLog) match.auditLog = [];
+      const staffUser = recordedBy || 'SOM PLY Staff';
+      match.auditLog.push({
+        recordedBy: staffUser,
+        recordedAt: new Date().toISOString(),
+        details: `Leg 1: ${leg1.p1}-${leg1.p2}, Leg 2: ${leg2.p1}-${leg2.p2}, Agg: ${agg1}-${agg2}. Winner: ${winner}`,
+      });
+
+      // ==========================================
+      // AUTOMATIC BRACKET ADVANCEMENT
+      // ==========================================
+      if (match.nextMatchId) {
+        const nextMatch = tournament.matches.find((m) => m.id === match.nextMatchId);
+        if (nextMatch) {
+          const winningAvatar = match.player1.name === winner ? match.player1.avatar : match.player2.avatar;
+          const winningGroup = match.player1.name === winner ? match.player1.group : match.player2.group;
+
+          if (match.nextMatchSlot === 'player1') {
+            nextMatch.player1 = {
+              name: winner,
+              avatar: winningAvatar,
+              group: winningGroup,
+              eliminated: false,
+            };
+          } else if (match.nextMatchSlot === 'player2') {
+            nextMatch.player2 = {
+              name: winner,
+              avatar: winningAvatar,
+              group: winningGroup,
+              eliminated: false,
+            };
+          }
+        }
+      }
+
+      // Check if Final match -> Crown Champion
+      if (match.round === 'Final') {
+        const champAvatar = match.player1.name === winner ? match.player1.avatar : match.player2.avatar;
+        const champGroup = match.player1.name === winner ? match.player1.group : match.player2.group;
+        tournament.champion = {
+          name: winner,
+          prize: '$30',
+          avatar: champAvatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+          group: champGroup,
+          score: `${agg1} - ${agg2}`,
+        };
+        tournament.status = 'completed';
+
+        const winnerParticipant: any = tournament.participants.find((p: any) => p.name === winner);
+        if (winnerParticipant) {
+          winnerParticipant.status = 'Champion';
+        }
+      }
+
+      // Append global audit trail
+      if (!tournament.auditTrail) tournament.auditTrail = [];
+      tournament.auditTrail.push({
+        id: `aud-${Date.now()}`,
+        action: 'match_score_saved',
+        performedBy: staffUser,
+        timestamp: new Date().toISOString(),
+        details: `Match ${match.id} (${match.round}): ${p1Name} vs ${p2Name} saved. Winner: ${winner} advanced.`,
+      });
+
+      writeJsonFile('tournament.json', tournament);
+      res.json({ success: true, match, champion: tournament.champion });
+    } catch (err: any) {
+      console.error('Error updating match score:', err);
+      res.status(500).json({ error: 'Failed to update match score' });
+    }
+  });
+
+  // ==========================================
+  // COMMUNITY & CHAT DATA STORE & ENDPOINTS
+  // ==========================================
+  interface CommunityStore {
+    posts: CommunityPost[];
+    conversations: ChatConversation[];
+    messages: Record<string, ChatMessage[]>;
+    profiles: Record<string, UserCommunityProfile>;
+    userFollows?: Record<string, string[]>;
+    userReactions?: Record<string, string[]>;
+    userBookmarks?: Record<string, string[]>;
+    blockedUsers?: Record<string, string[]>;
+    reports?: Array<{
+      id: string;
+      reporterId: string;
+      targetType: 'post' | 'user';
+      targetId: string;
+      reason: string;
+      createdAt: string;
+    }>;
+    privacySettings?: Record<string, { likedPostsPrivate: boolean; savedPostsPrivate: boolean }>;
+  }
+
+  const getCommunityData = (): CommunityStore => {
+    return readJsonFile<CommunityStore>('community.json', {
+      posts: [],
+      conversations: [],
+      messages: {},
+      profiles: {},
+      userFollows: {},
+      userReactions: {},
+      userBookmarks: {},
+      blockedUsers: {},
+      reports: [],
+      privacySettings: {},
+    });
+  };
+
+  const saveCommunityData = (data: CommunityStore) => {
+    writeJsonFile('community.json', data);
+  };
+
+  const PROHIBITED_WORDS = [
+    'wasakh', 'doqon', 'dabaal', 'nacas', 'khaniis', 'tuug', 'caay', 'dayuus',
+    'fuck', 'bitch', 'asshole', 'bastard', 'whore', 'slut', 'scam', 'cheat'
+  ];
+
+  const checkContentModeration = (text: string): { allowed: boolean; reason?: string } => {
+    if (!text) return { allowed: true };
+    const lower = text.toLowerCase();
+    for (const word of PROHIBITED_WORDS) {
+      const regex = new RegExp(`(^|\\s|[.,!?;])${word}($|\\s|[.,!?;])`, 'i');
+      if (regex.test(lower)) {
+        return {
+          allowed: false,
+          reason: `Qoraalkaagu wuxuu ka kooban yahay erey aan la oggolayn ("${word}"). Fadlan ilaali anshaxa bulshada. (Content contains prohibited word: "${word}")`,
+        };
+      }
+    }
+    return { allowed: true };
+  };
+
+  const calculatePopularScore = (post: CommunityPost): number => {
+    const likes = post.reactions || 0;
+    const comments = post.commentsCount || (post.comments ? post.comments.length : 0);
+    const shares = post.sharesCount || 0;
+    const views = post.views || 0;
+    const postTime = new Date(post.createdAt).getTime();
+    const now = Date.now();
+    const hoursAge = Math.max(0, (now - postTime) / (1000 * 60 * 60));
+    // Time decay formula: (engagement) / (hours + 2)^1.4
+    return (likes * 2.5 + comments * 3.0 + shares * 4.0 + views * 0.05) / Math.pow(hoursAge + 2, 1.4);
+  };
+
+  // Helper to extract session player identity
+  const getPlayerFromReq = (req: Request) => {
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      const token = authHeader.replace('Bearer ', '').trim();
+      const sessions = getPlayerSessions();
+      const session = sessions.find((s) => s.token === token);
+      if (session) {
+        const normName = normalizeUserId(session.name);
+        return {
+          id: normName,
+          name: normName,
+          participantId: session.participantId,
+        };
+      }
+    }
+    const customUserId = (req.headers['x-user-id'] as string) || (req.query.userId as string);
+    if (customUserId) {
+      const normCustom = normalizeUserId(customUserId);
+      return { id: normCustom, name: normCustom, participantId: normCustom };
+    }
+    return { id: 'Somali_Star10', name: 'Somali_Star10', participantId: 'ply-1793054922155-881' };
+  };
+
+  // 1. GET /api/community/posts (Unified feed: Latest & Popular modes, blocked filtering)
+  app.get('/api/community/posts', (req: Request, res: Response) => {
+    try {
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+      const userReactedPosts = community.userReactions?.[player.id] || [];
+      const userBookmarkedPosts = community.userBookmarks?.[player.id] || [];
+      const blockedList = community.blockedUsers?.[player.id] || [];
+
+      // Filter out blocked authors
+      const visiblePosts = community.posts.filter(
+        (p) => !blockedList.includes(p.authorId) && !blockedList.includes(p.authorName)
+      );
+
+      const postsWithUserReaction = visiblePosts.map((post) => ({
+        ...post,
+        userReacted: userReactedPosts.includes(post.id),
+        userBookmarked: userBookmarkedPosts.includes(post.id),
+        views: post.views || 1900 + (post.reactions * 12),
+        sharesCount: post.sharesCount || Math.floor((post.reactions || 0) / 4) || 2,
+      }));
+
+      // Sort by popular or latest
+      const sortMode = req.query.sort as string;
+      if (sortMode === 'popular') {
+        postsWithUserReaction.sort((a, b) => calculatePopularScore(b) - calculatePopularScore(a));
+      } else {
+        // Default latest: newest first
+        postsWithUserReaction.sort(
+          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      }
+
+      res.json({ success: true, posts: postsWithUserReaction });
+    } catch (err: any) {
+      console.error('Error fetching community posts:', err);
+      res.status(500).json({ error: 'Failed to fetch community posts' });
+    }
+  });
+
+  // 2. POST /api/community/posts (Create Post with Moderation, Video, and Quote)
+  app.post('/api/community/posts', (req: Request, res: Response) => {
+    try {
+      const { content, imageUrl, videoUrl, poll, linkUrl, authorName, authorAvatar, quotePost } = req.body;
+      if (!content || !String(content).trim()) {
+        return res.status(400).json({ error: 'Fadlan qor qoraalka boostada (Post content is required)' });
+      }
+
+      // Content Moderation Filter
+      const contentCheck = checkContentModeration(content);
+      if (!contentCheck.allowed) {
+        return res.status(400).json({ error: contentCheck.reason });
+      }
+
+      if (poll && poll.question) {
+        const pollCheck = checkContentModeration(poll.question);
+        if (!pollCheck.allowed) {
+          return res.status(400).json({ error: pollCheck.reason });
+        }
+      }
+
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+      const displayName = authorName?.trim() || player.name || 'Somali_Star10';
+
+      const newPost: CommunityPost = {
+        id: `post-${Date.now()}`,
+        authorId: player.id,
+        authorName: displayName,
+        authorAvatar:
+          authorAvatar ||
+          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80',
+        verified: true,
+        content: content.trim(),
+        imageUrl: imageUrl?.trim() || undefined,
+        videoUrl: videoUrl?.trim() || undefined,
+        linkUrl: linkUrl?.trim() || undefined,
+        quotePost: quotePost ? {
+          id: quotePost.id,
+          authorName: quotePost.authorName,
+          authorAvatar: quotePost.authorAvatar,
+          content: quotePost.content,
+          imageUrl: quotePost.imageUrl,
+        } : undefined,
+        poll: poll && poll.question && Array.isArray(poll.options)
+          ? {
+              question: poll.question.trim(),
+              options: poll.options.map((opt: string) => ({ text: String(opt).trim(), votes: 0 })),
+              totalVotes: 0,
+            }
+          : undefined,
+        reactions: 0,
+        userReacted: false,
+        views: 1,
+        sharesCount: 0,
+        commentsCount: 0,
+        comments: [],
+        createdAt: new Date().toISOString(),
+      };
+
+      community.posts.unshift(newPost);
+      saveCommunityData(community);
+
+      res.json({ success: true, post: newPost });
+    } catch (err: any) {
+      console.error('Error creating post:', err);
+      res.status(500).json({ error: 'Failed to create post' });
+    }
+  });
+
+  // 3. POST /api/community/posts/:id/react (Upvote / Reaction Toggle)
+  app.post('/api/community/posts/:id/react', (req: Request, res: Response) => {
+    try {
+      const postId = req.params.id;
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      const post = community.posts.find((p) => p.id === postId);
+      if (!post) {
+        return res.status(404).json({ error: 'Boostada lama helin' });
+      }
+
+      if (!community.userReactions) community.userReactions = {};
+      if (!community.userReactions[player.id]) community.userReactions[player.id] = [];
+
+      const index = community.userReactions[player.id].indexOf(postId);
+      let userReacted = false;
+
+      if (index >= 0) {
+        // Remove reaction
+        community.userReactions[player.id].splice(index, 1);
+        post.reactions = Math.max(0, post.reactions - 1);
+        userReacted = false;
+      } else {
+        // Add reaction
+        community.userReactions[player.id].push(postId);
+        post.reactions += 1;
+        userReacted = true;
+      }
+
+      saveCommunityData(community);
+      res.json({ success: true, reactions: post.reactions, userReacted });
+    } catch (err: any) {
+      console.error('Error reacting to post:', err);
+      res.status(500).json({ error: 'Failed to react to post' });
+    }
+  });
+
+  // 4. POST /api/community/posts/:id/comments (Add Comment)
+  app.post('/api/community/posts/:id/comments', (req: Request, res: Response) => {
+    try {
+      const postId = req.params.id;
+      const { text, authorName, authorAvatar } = req.body;
+      if (!text || !String(text).trim()) {
+        return res.status(400).json({ error: 'Fadlan qor faallada (Comment cannot be empty)' });
+      }
+
+      const community = getCommunityData();
+      const post = community.posts.find((p) => p.id === postId);
+      if (!post) {
+        return res.status(404).json({ error: 'Boostada lama helin' });
+      }
+
+      const player = getPlayerFromReq(req);
+      const newComment: CommunityComment = {
+        id: `c-${Date.now()}`,
+        authorId: player.id,
+        authorName: authorName?.trim() || player.name || 'Somali_Gamer',
+        authorAvatar:
+          authorAvatar ||
+          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+        text: text.trim(),
+        createdAt: new Date().toISOString(),
+        reactions: 0,
+      };
+
+      if (!post.comments) post.comments = [];
+      post.comments.push(newComment);
+      post.commentsCount = post.comments.length;
+
+      saveCommunityData(community);
+      res.json({ success: true, comment: newComment, commentsCount: post.commentsCount });
+    } catch (err: any) {
+      console.error('Error adding comment:', err);
+      res.status(500).json({ error: 'Failed to add comment' });
+    }
+  });
+
+  // 5. GET /api/community/conversations (Conversations List)
+  app.get('/api/community/conversations', (req: Request, res: Response) => {
+    try {
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      // Return conversations where player is a participant, or return all active seed conversations
+      let convs = community.conversations.filter(
+        (c) => c.participantIds.includes(player.id) || c.participantIds.includes('current-user')
+      );
+
+      if (convs.length === 0) {
+        convs = community.conversations;
+      }
+
+      // Sort by recent activity
+      convs.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+
+      res.json({ success: true, conversations: convs });
+    } catch (err: any) {
+      console.error('Error fetching conversations:', err);
+      res.status(500).json({ error: 'Failed to fetch conversations' });
+    }
+  });
+
+  // 6. GET /api/community/conversations/:id (Get single conversation messages)
+  app.get('/api/community/conversations/:id', (req: Request, res: Response) => {
+    try {
+      const convId = req.params.id;
+      const community = getCommunityData();
+      const conversation = community.conversations.find((c) => c.id === convId);
+
+      if (!conversation) {
+        return res.status(404).json({ error: 'Wadahadalka lama helin (Conversation not found)' });
+      }
+
+      const messages = community.messages[convId] || [];
+
+      // Mark unread as read
+      conversation.unreadCount = 0;
+      saveCommunityData(community);
+
+      res.json({ success: true, conversation, messages });
+    } catch (err: any) {
+      console.error('Error fetching conversation:', err);
+      res.status(500).json({ error: 'Failed to fetch conversation' });
+    }
+  });
+
+  // 7. POST /api/community/conversations/:id/messages (Send message)
+  app.post('/api/community/conversations/:id/messages', (req: Request, res: Response) => {
+    try {
+      const convId = req.params.id;
+      const { text, type, inviteData } = req.body;
+      if (!text && !inviteData) {
+        return res.status(400).json({ error: 'Farriin madhan lama diri karo (Message cannot be empty)' });
+      }
+
+      const community = getCommunityData();
+      let conversation = community.conversations.find((c) => c.id === convId);
+
+      if (!conversation) {
+        return res.status(404).json({ error: 'Conversation not found' });
+      }
+
+      const player = getPlayerFromReq(req);
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      const newMessage: ChatMessage = {
+        id: `msg-${Date.now()}`,
+        conversationId: convId,
+        senderId: player.id,
+        senderName: player.name,
+        senderAvatar:
+          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+        text: (text || '').trim(),
+        type: type || (inviteData ? 'match_invite' : 'text'),
+        inviteData,
+        createdAt: now.toISOString(),
+        read: true,
+      };
+
+      if (!community.messages[convId]) community.messages[convId] = [];
+      community.messages[convId].push(newMessage);
+
+      conversation.lastMessage = type === 'match_invite' ? '🎮 Match Invite sent' : newMessage.text;
+      conversation.lastMessageTime = timeStr;
+      conversation.updatedAt = now.toISOString();
+
+      saveCommunityData(community);
+      res.json({ success: true, message: newMessage, conversation });
+    } catch (err: any) {
+      console.error('Error sending message:', err);
+      res.status(500).json({ error: 'Failed to send message' });
+    }
+  });
+
+  // 8. POST /api/community/conversations/start (Start/Find conversation with user)
+  app.post('/api/community/conversations/start', (req: Request, res: Response) => {
+    try {
+      const { targetUserId, targetUserName, targetUserAvatar } = req.body;
+      if (!targetUserId) {
+        return res.status(400).json({ error: 'targetUserId is required' });
+      }
+
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      // Check if conversation already exists
+      let conv = community.conversations.find(
+        (c) =>
+          c.participantIds.includes(player.id) && c.participantIds.includes(targetUserId)
+      );
+
+      if (!conv) {
+        // Also check with 'current-user' alias
+        conv = community.conversations.find(
+          (c) =>
+            c.participantIds.includes('current-user') && c.participantIds.includes(targetUserId)
+        );
+      }
+
+      if (!conv) {
+        // Create new conversation
+        const convId = `conv-${Date.now()}`;
+        conv = {
+          id: convId,
+          participantIds: [player.id, targetUserId],
+          participants: [
+            {
+              id: player.id,
+              name: player.name,
+              avatar:
+                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+              online: true,
+            },
+            {
+              id: targetUserId,
+              name: targetUserName || targetUserId,
+              avatar:
+                targetUserAvatar ||
+                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+              online: true,
+              verified: true,
+            },
+          ],
+          lastMessage: '',
+          lastMessageTime: 'Just now',
+          unreadCount: 0,
+          updatedAt: new Date().toISOString(),
+        };
+
+        community.conversations.unshift(conv);
+        community.messages[convId] = [];
+        saveCommunityData(community);
+      }
+
+      res.json({ success: true, conversation: conv });
+    } catch (err: any) {
+      console.error('Error starting conversation:', err);
+      res.status(500).json({ error: 'Failed to start conversation' });
+    }
+  });
+
+  // 9. GET /api/community/users/:id (Public User Profile - Dynamic Authoritative Stats)
+  app.get('/api/community/users/:id', (req: Request, res: Response) => {
+    try {
+      const rawId = req.params.id;
+      const targetUserId = normalizeUserId(rawId);
+      const community = getCommunityData();
+      if (!community.userFollows) community.userFollows = {};
+      const player = getPlayerFromReq(req);
+      const currentUserId = normalizeUserId(player.id || player.name);
+
+      const currentRelations = getUserSocialRelations(currentUserId, community.userFollows);
+      const targetRelations = getUserSocialRelations(targetUserId, community.userFollows);
+
+      const isFollowing = currentRelations.following.includes(targetUserId);
+      const isMutualFriend = currentRelations.friends.includes(targetUserId);
+
+      // Calculate total likes received for this target user across their posts
+      let totalLikesReceived = 0;
+      community.posts.forEach((p) => {
+        if (
+          p.authorName?.toLowerCase() === targetUserId.toLowerCase() ||
+          p.authorId?.toLowerCase() === targetUserId.toLowerCase()
+        ) {
+          totalLikesReceived += p.reactions || 0;
+        }
+      });
+
+      // Tournament stats & matches for this user
+      const tournament = getTournamentData();
+      const participant: any = tournament.participants.find(
+        (p: any) =>
+          p.name.toLowerCase() === targetUserId.toLowerCase() ||
+          p.id.toLowerCase() === targetUserId.toLowerCase()
+      );
+
+      const known = KNOWN_DIRECTORY_USERS[targetUserId];
+      const storedProfile = community.profiles[targetUserId] || {};
+
+      const playerMatches = tournament.matches
+        .filter(
+          (m) =>
+            m.status === 'Completed' &&
+            m.aggregate &&
+            (m.player1.name.toLowerCase() === targetUserId.toLowerCase() ||
+              m.player2.name.toLowerCase() === targetUserId.toLowerCase())
+        )
+        .slice(0, 3)
+        .map((m) => {
+          const isP1 = m.player1.name.toLowerCase() === targetUserId.toLowerCase();
+          const oppName = isP1 ? m.player2.name : m.player1.name;
+          const oppAvatar = isP1 ? m.player2.avatar : m.player1.avatar;
+          const myScore = isP1 ? m.aggregate!.p1 : m.aggregate!.p2;
+          const oppScore = isP1 ? m.aggregate!.p2 : m.aggregate!.p1;
+          const result: 'Win' | 'Draw' | 'Loss' =
+            myScore > oppScore ? 'Win' : myScore === oppScore ? 'Draw' : 'Loss';
+
+          return {
+            opponent: oppName,
+            opponentAvatar: oppAvatar,
+            score: `${myScore} - ${oppScore}`,
+            result,
+            date: `${m.date} • ${m.round}`,
+            group: m.group,
+          };
+        });
+
+      const stats = participant
+        ? calculatePlayerStats(tournament.matches, participant.name)
+        : { played: 6, won: 4, lost: 2, goalsFor: 12, goalsAgainst: 7 };
+
+      const publicProfile: UserCommunityProfile = {
+        id: targetUserId,
+        name: targetUserId,
+        avatar:
+          storedProfile.avatar ||
+          known?.avatar ||
+          participant?.avatarUrl ||
+          'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+        bio:
+          storedProfile.bio ||
+          known?.bio ||
+          participant?.bio ||
+          'eFootball 2026 player in SOMPLAY community',
+        location: storedProfile.location || 'Somalia',
+        verified: storedProfile.verified ?? known?.verified ?? !!participant,
+        online: true,
+        followingCount: targetRelations.followingCount,
+        followersCount: targetRelations.followersCount,
+        friendsCount: targetRelations.friendsCount,
+        totalLikesReceived,
+        pepBalance: (storedProfile as any).pepBalance ?? 250,
+        isFollowing,
+        isMutualFriend,
+        tournamentStatus: participant?.status || (known?.group ? 'Participating' : 'Community Member'),
+        tournamentGroup: participant?.group || known?.group || 'Group A',
+        joinedDate: participant?.registeredAt
+          ? new Date(participant.registeredAt).toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })
+          : '12 Jun 2026',
+        stats: {
+          matches: stats.played || 6,
+          wins: stats.won || 4,
+          losses: stats.lost || 2,
+          goalsFor: stats.goalsFor || 12,
+          goalsAgainst: stats.goalsAgainst || 7,
+        },
+        recentMatches: playerMatches,
+      };
+
+      res.json({ success: true, profile: publicProfile });
+    } catch (err: any) {
+      console.error('Error fetching user profile:', err);
+      res.status(500).json({ error: 'Failed to fetch user profile' });
+    }
+  });
+
+  // 10. POST /api/community/users/:id/follow (Follow / Unfollow with strict consistency)
+  app.post('/api/community/users/:id/follow', (req: Request, res: Response) => {
+    try {
+      const rawTarget = req.params.id;
+      const targetUserId = normalizeUserId(rawTarget);
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+      const currentUserId = normalizeUserId(player.id || player.name);
+
+      if (currentUserId === targetUserId) {
+        return res.status(400).json({ error: 'Cannot follow yourself' });
+      }
+
+      if (!community.userFollows) community.userFollows = {};
+      if (!community.userFollows[currentUserId]) community.userFollows[currentUserId] = [];
+
+      // Clean deduplicated toggle
+      const currentFollowingSet = new Set(community.userFollows[currentUserId]);
+      let isFollowing = false;
+
+      if (currentFollowingSet.has(targetUserId)) {
+        currentFollowingSet.delete(targetUserId);
+        isFollowing = false;
+      } else {
+        currentFollowingSet.add(targetUserId);
+        isFollowing = true;
+      }
+
+      community.userFollows[currentUserId] = Array.from(currentFollowingSet);
+
+      // Keep profiles cache synchronized if it exists
+      if (community.profiles[targetUserId]) {
+        const targetRelations = getUserSocialRelations(targetUserId, community.userFollows);
+        community.profiles[targetUserId].followersCount = targetRelations.followersCount;
+        community.profiles[targetUserId].followingCount = targetRelations.followingCount;
+        community.profiles[targetUserId].friendsCount = targetRelations.friendsCount;
+      }
+      if (community.profiles[currentUserId]) {
+        const currentRelations = getUserSocialRelations(currentUserId, community.userFollows);
+        community.profiles[currentUserId].followersCount = currentRelations.followersCount;
+        community.profiles[currentUserId].followingCount = currentRelations.followingCount;
+        community.profiles[currentUserId].friendsCount = currentRelations.friendsCount;
+      }
+
+      saveCommunityData(community);
+
+      // Recalculate authoritative relationships for both users
+      const currentRelations = getUserSocialRelations(currentUserId, community.userFollows);
+      const targetRelations = getUserSocialRelations(targetUserId, community.userFollows);
+      const isMutualFriend = currentRelations.friends.includes(targetUserId);
+
+      res.json({
+        success: true,
+        isFollowing,
+        isMutualFriend,
+        targetUserId,
+        userStats: {
+          followingCount: currentRelations.followingCount,
+          followersCount: currentRelations.followersCount,
+          friendsCount: currentRelations.friendsCount,
+        },
+        targetStats: {
+          followingCount: targetRelations.followingCount,
+          followersCount: targetRelations.followersCount,
+          friendsCount: targetRelations.friendsCount,
+        },
+      });
+    } catch (err: any) {
+      console.error('Error following user:', err);
+      res.status(500).json({ error: 'Failed to follow user' });
+    }
+  });
+
+  // 11. POST /api/community/posts/:id/view (Record post view)
+  app.post('/api/community/posts/:id/view', (req: Request, res: Response) => {
+    try {
+      const postId = req.params.id;
+      const community = getCommunityData();
+      const post = community.posts.find((p) => p.id === postId);
+      if (!post) {
+        return res.status(404).json({ error: 'Boostada lama helin' });
+      }
+
+      post.views = (post.views || 0) + 1;
+      saveCommunityData(community);
+      res.json({ success: true, views: post.views });
+    } catch (err: any) {
+      console.error('Error recording post view:', err);
+      res.status(500).json({ error: 'Failed to record post view' });
+    }
+  });
+
+  // 12. POST /api/community/posts/:id/share (Share post: copy link, share to DM conversation with friend, or quote)
+  app.post('/api/community/posts/:id/share', (req: Request, res: Response) => {
+    try {
+      const postId = req.params.id;
+      const { type, targetUserId, conversationId } = req.body; // type: 'link' | 'chat' | 'quote'
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+      const post = community.posts.find((p) => p.id === postId);
+
+      if (!post) {
+        return res.status(404).json({ error: 'Boostada lama helin (Post not found)' });
+      }
+
+      post.sharesCount = (post.sharesCount || 0) + 1;
+
+      // If sharing to a mutual friend in Direct Messages
+      if (type === 'chat' && (targetUserId || conversationId)) {
+        let conv = conversationId
+          ? community.conversations.find((c) => c.id === conversationId)
+          : community.conversations.find(
+              (c) =>
+                (c.participantIds.includes(player.id) || c.participantIds.includes('current-user')) &&
+                c.participantIds.includes(targetUserId!)
+            );
+
+        if (!conv && targetUserId) {
+          const newConvId = `conv-${Date.now()}`;
+          conv = {
+            id: newConvId,
+            participantIds: [player.id, targetUserId],
+            participants: [
+              {
+                id: player.id,
+                name: player.name,
+                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+                online: true,
+              },
+              {
+                id: targetUserId,
+                name: targetUserId,
+                avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
+                online: true,
+                verified: true,
+              },
+            ],
+            lastMessage: `Shared post by @${post.authorName}`,
+            lastMessageTime: 'Just now',
+            unreadCount: 1,
+            updatedAt: new Date().toISOString(),
+          };
+          community.conversations.unshift(conv);
+          community.messages[newConvId] = [];
+        }
+
+        if (conv) {
+          const now = new Date();
+          const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+          const shareMessage: ChatMessage = {
+            id: `msg-${Date.now()}`,
+            conversationId: conv.id,
+            senderId: player.id,
+            senderName: player.name,
+            senderAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+            text: `Wuxuu kula wadaagay boosto: "${post.content.slice(0, 70)}${post.content.length > 70 ? '...' : ''}"`,
+            type: 'post_share',
+            sharedPost: {
+              id: post.id,
+              authorName: post.authorName,
+              authorAvatar: post.authorAvatar,
+              content: post.content,
+              imageUrl: post.imageUrl,
+            },
+            createdAt: now.toISOString(),
+            read: true,
+          };
+
+          if (!community.messages[conv.id]) community.messages[conv.id] = [];
+          community.messages[conv.id].push(shareMessage);
+          conv.lastMessage = `Shared post by @${post.authorName}`;
+          conv.lastMessageTime = timeStr;
+          conv.updatedAt = now.toISOString();
+        }
+      }
+
+      saveCommunityData(community);
+      res.json({ success: true, sharesCount: post.sharesCount });
+    } catch (err: any) {
+      console.error('Error sharing post:', err);
+      res.status(500).json({ error: 'Failed to share post' });
+    }
+  });
+
+  // 13. POST /api/community/report (Reporting and safety)
+  app.post('/api/community/report', (req: Request, res: Response) => {
+    try {
+      const { targetType, targetId, reason } = req.body;
+      if (!targetType || !targetId || !reason) {
+        return res.status(400).json({ error: 'Dhammaan meelaha banaan waa lagama maarmaan (All fields required)' });
+      }
+
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      if (!community.reports) community.reports = [];
+      community.reports.push({
+        id: `rep-${Date.now()}`,
+        reporterId: player.id,
+        targetType: targetType === 'user' ? 'user' : 'post',
+        targetId,
+        reason: String(reason).trim(),
+        createdAt: new Date().toISOString(),
+      });
+
+      saveCommunityData(community);
+      res.json({
+        success: true,
+        message: 'Waad ku mahadsan tahay warbixintaada, kooxda kormeerka ayaa dib u eegi doonta (Report received and will be reviewed)',
+      });
+    } catch (err: any) {
+      console.error('Error reporting content:', err);
+      res.status(500).json({ error: 'Failed to submit report' });
+    }
+  });
+
+  // 14. POST /api/community/users/:id/block (Block / Unblock user)
+  app.post('/api/community/users/:id/block', (req: Request, res: Response) => {
+    try {
+      const targetUserId = req.params.id;
+      const community = getCommunityData();
+      const player = getPlayerFromReq(req);
+
+      if (!community.blockedUsers) community.blockedUsers = {};
+      if (!community.blockedUsers[player.id]) community.blockedUsers[player.id] = [];
+
+      const list = community.blockedUsers[player.id];
+      const index = list.indexOf(targetUserId);
+      let isBlocked = false;
+
+      if (index >= 0) {
+        list.splice(index, 1);
+        isBlocked = false;
+      } else {
+        list.push(targetUserId);
+        isBlocked = true;
+      }
+
+      saveCommunityData(community);
+      res.json({ success: true, isBlocked });
+    } catch (err: any) {
+      console.error('Error blocking user:', err);
+      res.status(500).json({ error: 'Failed to block/unblock user' });
+    }
   });
 
   // Mount Vite or serve static

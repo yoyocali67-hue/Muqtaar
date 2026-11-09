@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@layer base {
+  /* Prevent iOS Safari auto-zoom on input focus by guaranteeing 16px min font size on mobile */
+  @media (max-width: 640px) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Keep focused inputs visible comfortably above the mobile on-screen keyboard */
+  input,
+  textarea,
+  select {
+    scroll-margin-top: 72px;
+    scroll-margin-bottom: 72px;
+  }
+
+  /* Stable viewport: Prevent horizontal jitter and horizontal scroll bounce */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: none;
+  }
+}

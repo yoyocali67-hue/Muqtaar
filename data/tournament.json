@@ -1,0 +1,1110 @@
+{
+  "id": "somplay-efootball-2026-t1",
+  "name": "SOMPLAY eFootball Tournament",
+  "totalCapacity": 64,
+  "entryFeeBab": 50,
+  "entryFeeText": "50 BAB",
+  "prizePoolUsd": 30,
+  "prizePoolText": "$30",
+  "startDate": "12 Jun 2026",
+  "format": "Knockout",
+  "registeredCount": 17,
+  "status": "bracket_active",
+  "drawApproved": true,
+  "drawApprovedAt": "2026-06-10T12:00:00Z",
+  "drawApprovedBy": "SOM PLY Organizer",
+  "champion": null,
+  "groups": [
+    {
+      "name": "Group A",
+      "players": [
+        "Ahmed_07",
+        "Rashid_2",
+        "Farhan_1",
+        "Warsame_9",
+        "Khadar_4",
+        "Bilal_7",
+        "Abdi_10",
+        "Mustaf_3"
+      ],
+      "qualifiers": [
+        "Ahmed_07",
+        "Rashid_2",
+        "Farhan_1",
+        "Warsame_9"
+      ]
+    },
+    {
+      "name": "Group B",
+      "players": [
+        "Ziad_9",
+        "Yazen_7",
+        "Hamza_3",
+        "Mahad_8",
+        "Liban_5",
+        "Sahal_2",
+        "Fuaad_6",
+        "Daud_4"
+      ],
+      "qualifiers": [
+        "Ziad_9",
+        "Yazen_7",
+        "Hamza_3",
+        "Mahad_8"
+      ]
+    },
+    {
+      "name": "Group C",
+      "players": [
+        "Omar_4",
+        "Fahad_5",
+        "Guled_2",
+        "Ayanle_7",
+        "Jama_1",
+        "Sharmarke_6",
+        "Nur_8",
+        "Ilyas_3"
+      ],
+      "qualifiers": [
+        "Omar_4",
+        "Fahad_5",
+        "Guled_2",
+        "Ayanle_7"
+      ]
+    },
+    {
+      "name": "Group D",
+      "players": [
+        "Khaled_10",
+        "Kareem_12",
+        "Hassan_A",
+        "Mukhtar_5",
+        "Suleiman_9",
+        "Zakaria_4",
+        "Bashiir_1",
+        "Cali_7"
+      ],
+      "qualifiers": [
+        "Khaled_10",
+        "Kareem_12",
+        "Hassan_A",
+        "Mukhtar_5"
+      ]
+    },
+    {
+      "name": "Group E",
+      "players": [
+        "Rami_6",
+        "Tariq_6",
+        "Yasin_2",
+        "Anas_8",
+        "Maxamed_5",
+        "Cabdiraxman_4",
+        "Idris_9",
+        "Kafi_1"
+      ],
+      "qualifiers": [
+        "Rami_6",
+        "Tariq_6",
+        "Yasin_2",
+        "Anas_8"
+      ]
+    },
+    {
+      "name": "Group F",
+      "players": [
+        "Hassan_3",
+        "Omar_9",
+        "Abdirizak_7",
+        "Qaasim_2",
+        "Ismail_6",
+        "Ciise_1",
+        "Aweis_4",
+        "Samatar_8"
+      ],
+      "qualifiers": [
+        "Hassan_3",
+        "Omar_9",
+        "Abdirizak_7",
+        "Qaasim_2"
+      ]
+    },
+    {
+      "name": "Group G",
+      "players": [
+        "Ali_8",
+        "Nasser_8",
+        "Burhan_3",
+        "Deeq_5",
+        "Shuceyb_1",
+        "Muxyadiin_9",
+        "Xuseen_2",
+        "Saabir_4"
+      ],
+      "qualifiers": [
+        "Ali_8",
+        "Nasser_8",
+        "Burhan_3",
+        "Deeq_5"
+      ]
+    },
+    {
+      "name": "Group H",
+      "players": [
+        "Youssef_11",
+        "Sami_11",
+        "Ridwan_7",
+        "Sayid_3",
+        "Keyse_8",
+        "Shariif_2",
+        "Yuusuf_5",
+        "Cumar_6"
+      ],
+      "qualifiers": [
+        "Youssef_11",
+        "Sami_11",
+        "Ridwan_7",
+        "Sayid_3"
+      ]
+    }
+  ],
+  "participants": [
+    {
+      "id": "p-1",
+      "name": "Ahmed_07",
+      "email": "ahmed07@somply.com",
+      "whatsapp": "+252615112233",
+      "group": "Group A",
+      "registeredAt": "2026-06-01T10:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      "status": "Active",
+      "bio": "SOMPLAY Tournament Finalist • Group A Champion"
+    },
+    {
+      "id": "p-2",
+      "name": "Rashid_2",
+      "email": "rashid2@somply.com",
+      "whatsapp": "+252615445566",
+      "group": "Group A",
+      "registeredAt": "2026-06-01T10:15:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+      "status": "Eliminated",
+      "eliminated": true
+    },
+    {
+      "id": "p-3",
+      "name": "Ziad_9",
+      "email": "ziad9@somply.com",
+      "whatsapp": "+252615778899",
+      "group": "Group B",
+      "registeredAt": "2026-06-01T11:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-4",
+      "name": "Yazen_7",
+      "email": "yazen7@somply.com",
+      "whatsapp": "+252616112233",
+      "group": "Group B",
+      "registeredAt": "2026-06-01T11:30:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "status": "Eliminated",
+      "eliminated": true
+    },
+    {
+      "id": "p-5",
+      "name": "Omar_4",
+      "email": "omar4@somply.com",
+      "whatsapp": "+252616445566",
+      "group": "Group C",
+      "registeredAt": "2026-06-01T12:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-6",
+      "name": "Fahad_5",
+      "email": "fahad5@somply.com",
+      "whatsapp": "+252616778899",
+      "group": "Group C",
+      "registeredAt": "2026-06-01T12:20:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80",
+      "status": "Eliminated",
+      "eliminated": true
+    },
+    {
+      "id": "p-7",
+      "name": "Khaled_10",
+      "email": "khaled10@somply.com",
+      "whatsapp": "+252617112233",
+      "group": "Group D",
+      "registeredAt": "2026-06-01T13:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-8",
+      "name": "Kareem_12",
+      "email": "kareem12@somply.com",
+      "whatsapp": "+252617445566",
+      "group": "Group D",
+      "registeredAt": "2026-06-01T13:15:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80",
+      "status": "Eliminated",
+      "eliminated": true
+    },
+    {
+      "id": "p-9",
+      "name": "Rami_6",
+      "email": "rami6@somply.com",
+      "whatsapp": "+252617778899",
+      "group": "Group E",
+      "registeredAt": "2026-06-01T14:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-10",
+      "name": "Tariq_6",
+      "email": "tariq6@somply.com",
+      "whatsapp": "+252618112233",
+      "group": "Group E",
+      "registeredAt": "2026-06-01T14:30:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80",
+      "status": "Eliminated",
+      "eliminated": true
+    },
+    {
+      "id": "p-11",
+      "name": "Hassan_3",
+      "email": "hassan3@somply.com",
+      "whatsapp": "+252618445566",
+      "group": "Group F",
+      "registeredAt": "2026-06-01T15:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-12",
+      "name": "Omar_9",
+      "email": "omar9@somply.com",
+      "whatsapp": "+252618778899",
+      "group": "Group F",
+      "registeredAt": "2026-06-01T15:15:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-13",
+      "name": "Ali_8",
+      "email": "ali8@somply.com",
+      "whatsapp": "+252619112233",
+      "group": "Group G",
+      "registeredAt": "2026-06-01T16:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-14",
+      "name": "Nasser_8",
+      "email": "nasser8@somply.com",
+      "whatsapp": "+252619445566",
+      "group": "Group G",
+      "registeredAt": "2026-06-01T16:30:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-15",
+      "name": "Youssef_11",
+      "email": "youssef11@somply.com",
+      "whatsapp": "+252619778899",
+      "group": "Group H",
+      "registeredAt": "2026-06-01T17:00:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "p-16",
+      "name": "Sami_11",
+      "email": "sami11@somply.com",
+      "whatsapp": "+252615998877",
+      "group": "Group H",
+      "registeredAt": "2026-06-01T17:30:00Z",
+      "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "status": "Active"
+    },
+    {
+      "id": "ply-1793054922155-881",
+      "name": "Somali_Star10",
+      "email": "somalistar@somply.com",
+      "whatsapp": "+252619999888",
+      "passwordHash": "c2VjcmV0cGFzczEyMw==",
+      "accountScreenshotUrl": "",
+      "registeredAt": "2026-10-26T22:48:42.155Z",
+      "group": "Group A",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80",
+      "status": "Active",
+      "bio": "eFootball is not just a game, it's a lifestyle.",
+      "eliminated": false
+    }
+  ],
+  "matches": [
+    {
+      "id": "m-r32-1",
+      "round": "Round of 32",
+      "matchNumber": 1,
+      "branch": "left",
+      "group": "Group A",
+      "time": "8:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-1",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Ahmed_07",
+        "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "group": "Group A"
+      },
+      "player2": {
+        "name": "Rashid_2",
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+        "group": "Group A",
+        "eliminated": true
+      },
+      "status": "Completed",
+      "leg1": {
+        "p1": 1,
+        "p2": 1
+      },
+      "leg2": {
+        "p1": 1,
+        "p2": 0
+      },
+      "aggregate": {
+        "p1": 2,
+        "p2": 1
+      },
+      "winner": "Ahmed_07",
+      "eliminatedPlayer": "Rashid_2",
+      "notes": "Aggregate win 2-1 on 2nd leg",
+      "auditLog": [
+        {
+          "recordedBy": "SOM PLY Organizer",
+          "recordedAt": "2026-06-12T21:00:00Z",
+          "details": "Leg 1: 1-1, Leg 2: 1-0. Winner: Ahmed_07"
+        }
+      ]
+    },
+    {
+      "id": "m-r32-2",
+      "round": "Round of 32",
+      "matchNumber": 2,
+      "branch": "left",
+      "group": "Group B",
+      "time": "8:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-1",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Ziad_9",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group B"
+      },
+      "player2": {
+        "name": "Yazen_7",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+        "group": "Group B",
+        "eliminated": true
+      },
+      "status": "Completed",
+      "leg1": {
+        "p1": 0,
+        "p2": 0
+      },
+      "leg2": {
+        "p1": 1,
+        "p2": 0
+      },
+      "aggregate": {
+        "p1": 1,
+        "p2": 0
+      },
+      "winner": "Ziad_9",
+      "eliminatedPlayer": "Yazen_7"
+    },
+    {
+      "id": "m-r32-3",
+      "round": "Round of 32",
+      "matchNumber": 3,
+      "branch": "left",
+      "group": "Group C",
+      "time": "9:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-2",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Omar_4",
+        "avatar": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group C"
+      },
+      "player2": {
+        "name": "Fahad_5",
+        "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80",
+        "group": "Group C",
+        "eliminated": true
+      },
+      "status": "Completed",
+      "leg1": {
+        "p1": 2,
+        "p2": 1
+      },
+      "leg2": {
+        "p1": 1,
+        "p2": 1
+      },
+      "aggregate": {
+        "p1": 3,
+        "p2": 2
+      },
+      "winner": "Omar_4",
+      "eliminatedPlayer": "Fahad_5"
+    },
+    {
+      "id": "m-r32-4",
+      "round": "Round of 32",
+      "matchNumber": 4,
+      "branch": "left",
+      "group": "Group D",
+      "time": "9:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-2",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Khaled_10",
+        "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group D"
+      },
+      "player2": {
+        "name": "Kareem_12",
+        "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80",
+        "group": "Group D",
+        "eliminated": true
+      },
+      "status": "Completed",
+      "leg1": {
+        "p1": 1,
+        "p2": 0
+      },
+      "leg2": {
+        "p1": 1,
+        "p2": 0
+      },
+      "aggregate": {
+        "p1": 2,
+        "p2": 0
+      },
+      "winner": "Khaled_10",
+      "eliminatedPlayer": "Kareem_12"
+    },
+    {
+      "id": "m-r32-5",
+      "round": "Round of 32",
+      "matchNumber": 5,
+      "branch": "left",
+      "group": "Group E",
+      "time": "10:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-3",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Rami_6",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&q=80",
+        "group": "Group E"
+      },
+      "player2": {
+        "name": "Tariq_6",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group E",
+        "eliminated": true
+      },
+      "status": "Completed",
+      "leg1": {
+        "p1": 2,
+        "p2": 0
+      },
+      "leg2": {
+        "p1": 1,
+        "p2": 1
+      },
+      "aggregate": {
+        "p1": 3,
+        "p2": 1
+      },
+      "decidingMethod": "aggregate",
+      "winner": "Rami_6",
+      "eliminatedPlayer": "Tariq_6",
+      "auditLog": [
+        {
+          "recordedBy": "Organizer Ali",
+          "recordedAt": "2026-10-26T22:49:24.322Z",
+          "details": "Leg 1: 2-0, Leg 2: 1-1, Agg: 3-1. Winner: Rami_6"
+        }
+      ]
+    },
+    {
+      "id": "m-r32-6",
+      "round": "Round of 32",
+      "matchNumber": 6,
+      "branch": "left",
+      "group": "Group F",
+      "time": "10:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-3",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Hassan_3",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+        "group": "Group F"
+      },
+      "player2": {
+        "name": "Omar_9",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80",
+        "group": "Group F"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-7",
+      "round": "Round of 32",
+      "matchNumber": 7,
+      "branch": "left",
+      "group": "Group G",
+      "time": "11:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-4",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Ali_8",
+        "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80",
+        "group": "Group G"
+      },
+      "player2": {
+        "name": "Nasser_8",
+        "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80",
+        "group": "Group G"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-8",
+      "round": "Round of 32",
+      "matchNumber": 8,
+      "branch": "left",
+      "group": "Group H",
+      "time": "11:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-4",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Youssef_11",
+        "avatar": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group H"
+      },
+      "player2": {
+        "name": "Sami_11",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+        "group": "Group H"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-9",
+      "round": "Round of 32",
+      "matchNumber": 9,
+      "branch": "right",
+      "group": "Group A",
+      "time": "8:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-5",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Farhan_1",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group A"
+      },
+      "player2": {
+        "name": "Warsame_9",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+        "group": "Group A"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-10",
+      "round": "Round of 32",
+      "matchNumber": 10,
+      "branch": "right",
+      "group": "Group B",
+      "time": "8:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-5",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Hamza_3",
+        "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80",
+        "group": "Group B"
+      },
+      "player2": {
+        "name": "Mahad_8",
+        "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group B"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-11",
+      "round": "Round of 32",
+      "matchNumber": 11,
+      "branch": "right",
+      "group": "Group C",
+      "time": "9:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-6",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Guled_2",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&q=80",
+        "group": "Group C"
+      },
+      "player2": {
+        "name": "Ayanle_7",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group C"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-12",
+      "round": "Round of 32",
+      "matchNumber": 12,
+      "branch": "right",
+      "group": "Group D",
+      "time": "9:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-6",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Hassan_A",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+        "group": "Group D"
+      },
+      "player2": {
+        "name": "Mukhtar_5",
+        "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80",
+        "group": "Group D"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-13",
+      "round": "Round of 32",
+      "matchNumber": 13,
+      "branch": "right",
+      "group": "Group E",
+      "time": "10:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-7",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Yasin_2",
+        "avatar": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group E"
+      },
+      "player2": {
+        "name": "Anas_8",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+        "group": "Group E"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-14",
+      "round": "Round of 32",
+      "matchNumber": 14,
+      "branch": "right",
+      "group": "Group F",
+      "time": "10:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-7",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Abdirizak_7",
+        "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "group": "Group F"
+      },
+      "player2": {
+        "name": "Qaasim_2",
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
+        "group": "Group F"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-15",
+      "round": "Round of 32",
+      "matchNumber": 15,
+      "branch": "right",
+      "group": "Group G",
+      "time": "11:00 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-8",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Burhan_3",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group G"
+      },
+      "player2": {
+        "name": "Deeq_5",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+        "group": "Group G"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r32-16",
+      "round": "Round of 32",
+      "matchNumber": 16,
+      "branch": "right",
+      "group": "Group H",
+      "time": "11:30 PM",
+      "date": "12 Jun 2026",
+      "nextMatchId": "m-r16-8",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Ridwan_7",
+        "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80",
+        "group": "Group H"
+      },
+      "player2": {
+        "name": "Sayid_3",
+        "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group H"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-1",
+      "round": "Round of 16",
+      "matchNumber": 1,
+      "branch": "left",
+      "time": "8:00 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-1",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Ahmed_07",
+        "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+        "group": "Group A"
+      },
+      "player2": {
+        "name": "Ziad_9",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+        "group": "Group B"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-2",
+      "round": "Round of 16",
+      "matchNumber": 2,
+      "branch": "left",
+      "time": "8:45 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-1",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Omar_4",
+        "avatar": "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group C"
+      },
+      "player2": {
+        "name": "Khaled_10",
+        "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80",
+        "group": "Group D"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-3",
+      "round": "Round of 16",
+      "matchNumber": 3,
+      "branch": "left",
+      "time": "9:15 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-2",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Rami_6",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&q=80",
+        "group": "Group E",
+        "eliminated": false
+      },
+      "player2": {
+        "name": "Winner M6",
+        "group": "Left"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-4",
+      "round": "Round of 16",
+      "matchNumber": 4,
+      "branch": "left",
+      "time": "9:45 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-2",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner M7",
+        "group": "Left"
+      },
+      "player2": {
+        "name": "Winner M8",
+        "group": "Left"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-5",
+      "round": "Round of 16",
+      "matchNumber": 5,
+      "branch": "right",
+      "time": "8:00 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-3",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Winner M9",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner M10",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-6",
+      "round": "Round of 16",
+      "matchNumber": 6,
+      "branch": "right",
+      "time": "8:45 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-3",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner M11",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner M12",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-7",
+      "round": "Round of 16",
+      "matchNumber": 7,
+      "branch": "right",
+      "time": "9:15 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-4",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Winner M13",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner M14",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-r16-8",
+      "round": "Round of 16",
+      "matchNumber": 8,
+      "branch": "right",
+      "time": "9:45 PM",
+      "date": "13 Jun 2026",
+      "nextMatchId": "m-qf-4",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner M15",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner M16",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-qf-1",
+      "round": "Quarter Finals",
+      "matchNumber": 1,
+      "branch": "left",
+      "time": "8:00 PM",
+      "date": "14 Jun 2026",
+      "nextMatchId": "m-sf-1",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Winner R16-1",
+        "group": "Left"
+      },
+      "player2": {
+        "name": "Winner R16-2",
+        "group": "Left"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-qf-2",
+      "round": "Quarter Finals",
+      "matchNumber": 2,
+      "branch": "left",
+      "time": "8:45 PM",
+      "date": "14 Jun 2026",
+      "nextMatchId": "m-sf-1",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner R16-3",
+        "group": "Left"
+      },
+      "player2": {
+        "name": "Winner R16-4",
+        "group": "Left"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-qf-3",
+      "round": "Quarter Finals",
+      "matchNumber": 3,
+      "branch": "right",
+      "time": "9:15 PM",
+      "date": "14 Jun 2026",
+      "nextMatchId": "m-sf-2",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Winner R16-5",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner R16-6",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-qf-4",
+      "round": "Quarter Finals",
+      "matchNumber": 4,
+      "branch": "right",
+      "time": "9:45 PM",
+      "date": "14 Jun 2026",
+      "nextMatchId": "m-sf-2",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner R16-7",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner R16-8",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-sf-1",
+      "round": "Semi Finals",
+      "matchNumber": 1,
+      "branch": "left",
+      "time": "8:00 PM",
+      "date": "15 Jun 2026",
+      "nextMatchId": "m-final",
+      "nextMatchSlot": "player1",
+      "player1": {
+        "name": "Winner QF-1",
+        "group": "Left"
+      },
+      "player2": {
+        "name": "Winner QF-2",
+        "group": "Left"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-sf-2",
+      "round": "Semi Finals",
+      "matchNumber": 2,
+      "branch": "right",
+      "time": "8:45 PM",
+      "date": "15 Jun 2026",
+      "nextMatchId": "m-final",
+      "nextMatchSlot": "player2",
+      "player1": {
+        "name": "Winner QF-3",
+        "group": "Right"
+      },
+      "player2": {
+        "name": "Winner QF-4",
+        "group": "Right"
+      },
+      "status": "Upcoming"
+    },
+    {
+      "id": "m-final",
+      "round": "Final",
+      "matchNumber": 1,
+      "branch": "left",
+      "time": "9:00 PM",
+      "date": "16 Jun 2026",
+      "player1": {
+        "name": "Winner SF-1",
+        "group": "Left Champion"
+      },
+      "player2": {
+        "name": "Winner SF-2",
+        "group": "Right Champion"
+      },
+      "status": "Upcoming"
+    }
+  ],
+  "auditTrail": [
+    {
+      "id": "aud-init",
+      "action": "tournament_initialized",
+      "performedBy": "SOM PLY System",
+      "timestamp": "2026-06-01T00:00:00Z",
+      "details": "Initialized SOMPLAY eFootball 2026 Tournament with 64 capacity."
+    },
+    {
+      "id": "aud-1793054922155",
+      "action": "player_registered",
+      "performedBy": "SomaliStar_10",
+      "timestamp": "2026-10-26T22:48:42.155Z",
+      "details": "Player SomaliStar_10 registered with email somalistar@somply.com"
+    },
+    {
+      "id": "aud-1793054964322",
+      "action": "match_score_saved",
+      "performedBy": "Organizer Ali",
+      "timestamp": "2026-10-26T22:49:24.322Z",
+      "details": "Match m-r32-5 (Round of 32): Rami_6 vs Tariq_6 saved. Winner: Rami_6 advanced."
+    }
+  ]
+}
